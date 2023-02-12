@@ -1,0 +1,13 @@
+Main.pdf
+Main.synctex.gz
+code/.ipynb_checkpoints/
+*.aux
+*.lot
+*.out
+*.toc
+*.bbl
+*.log
+*.lof
+*.blg
+*.bbl
+
