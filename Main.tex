@@ -1,0 +1,93 @@
+\documentclass{report}[11pt]
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{parskip}
+\usepackage{placeins}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{cite}
+\usepackage{xcolor}
+\usepackage{rotating}
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage[makeroom]{cancel}
+\usepackage[fleqn]{cases}
+\usepackage[]{mdframed}
+\usepackage{framed}
+\usepackage[pagestyles]{titlesec}
+\titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\Huge}
+\newpagestyle{mystyle}
+{\sethead[\thepage][][\chaptertitle]{}{}{\thepage}}
+
+\usepackage{xr}
+\usepackage{enumitem}
+
+\usepackage{hyperref}
+\hypersetup{
+     colorlinks=false,
+}
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ %total={170mm,257mm},
+ %left=20mm,
+ top=20mm,
+ }
+
+
+\begin{document}
+
+\setlength{\parindent}{0pt}
+
+\pagenumbering{gobble}
+
+\input{pages/Titlepage}
+\input{pages/blank}
+\input{pages/Abstract}
+%\input{Blank}
+\input{pages/Dedicatory}
+\input{pages/Authorship}
+\input{pages/Blank}
+
+%\pagenumbering{arabic}
+
+\thispagestyle{empty}
+\tableofcontents
+\listoffigures
+\listoftables
+
+\input{pages/conventions}
+\pagenumbering{roman}
+
+\pagenumbering{arabic}
+\input{pages/Introduction}
+
+\newpage
+%\input{sections/physics}
+\input{sections/Newton}
+\input{sections/Einstein}
+\input{sections/detectors}
+
+
+
+\newpage
+ \input{sections/BNS}
+
+ \newpage
+\input{sections/data-analysis}
+\input{sections/results}
+
+\newpage
+\input{sections/Appendix_A}
+\newpage
+\input{sections/Appendix_B}
+
+\newpage
+\input{pages/acknowledgments}
+
+\bibliographystyle{plain}
+\bibliography{bib}
+
+\end{document}

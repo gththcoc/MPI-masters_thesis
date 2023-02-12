@@ -1,0 +1,44 @@
+\appendix
+\addcontentsline{toc}{part}{Appendices}
+\chapter{Unit conversions}\label{unit conv}
+
+When dealing with relativistic computations, it is very common to use geometric units since it comes in handy to set the universal constants c and G equal to 1. However, if one wants to handle observational data, SI units or cgs units are much more helpful since it is more natural to relate them to instrument measurements.
+
+Knowing the correct conversions between units is a crucial step in playing around with the outputs of numerical relativistic simulations.
+
+$$
+c = 2.997\cdot10^8 \frac{m}{s} = 2.997\cdot10^{10} \frac{cm}{s}
+$$
+
+$$ 
+G = 6.674\cdot10^{-11} \frac{m^3}{kg \cdot s^2}  = 6.674\cdot10^{-8} \frac{cm^3}{g \cdot s^2}
+$$
+
+$$
+M_{\odot} = 1.988\cdot10^{30} kg
+$$
+
+Setting  the universal constants c and G equal to 1 lead to some equivalences of physical quantities, which can be interpreted in "spacetime" language as
+  
+$$
+1 = 2.997\cdot10^8 \frac{m}{s} \longmapsto 1s = 2.997\cdot10^8 m
+$$
+
+$$ 
+1 = 6.674\cdot10^{-11} \frac{m^3}{kg \cdot s^2} = \frac{6.674\cdot10^{-11}}{\left( 2.997\cdot 10^8 \right)^2} \frac{m^3}{m^2 \cdot kg} \longmapsto 1kg = 0.743 \cdot 10^{-27}m
+$$
+
+All of the quantities described in SI units must then be converted accordingly. For example, one can think of "the solar mass in seconds" or "the solar mass in meters", a widely used quantity for scaling results and avoiding huge numbers appearing in numerical computations.
+
+$$
+M_{\odot_{SI}} = 1.988\cdot10^{30} kg
+$$
+
+$$
+M_{\odot_{m}} = 1.988\cdot10^{30} kg \cdot \left( \frac{0.743\cdot 10^{-27}m}{1kg} \right) = 1.484 \cdot 10^{3} m
+$$
+
+$$
+M_{\odot_{s}} = 1.484 \cdot 10^{3} m \cdot \left( \frac{1s}{2.997\cdot10^8 m} \right) = 4.951 \cdot 10^{-6} s
+$$
+
