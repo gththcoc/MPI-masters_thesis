@@ -331,45 +331,34 @@ Even though imposing such constraints on parameter space might help to recover t
 \newpage
 \section{How well can the monochromatic model recover signals in the catalog?}
 
+The fact that one can find waveforms in the catalogs for which the finite monochormatic model can reproduce its duration and main frequency while at the same time recovering more than 75\%  of the optimal SNR(see figure \ref{BAM:0035}) leads us to ask wheter such a simple model can produce similar results across the whole waveform catalog. 
+ 
+This section will use the infrastructure described in figure \ref{} to analize iteratively the whole dataset of 220 wavefoms(see section \ref{}) using the finite monochromatic template model \ref{}. In that case, equation \ref{} for computing the maximum recovered SNR takes the form 
 
-The fact that a monochromatic template model can recover up to 75\% of the optimal SNR for some waveforms while covering a significant amount of duration like the one shown in figure \ref{BAM:0035} leads us to ask how the model would perform in a more extensive set of waveforms. 
-
-
-The following section will use a 2-dimensional version of equation \ref{} for a set of j=220 waveforms to explore possible correlations between signal properties like its main frequency and duration and physical obsevables  using the infrastructure described in figure \ref{}
 
 \begin{equation}\label{eq:21}
-\rho_{_{_{rec}}} = \rho^j_{_{_{f,d}}} = \frac{\langle h, q_{_{_{f,d}}}\cdot e^{i(2\pi \tau+\phi)}\rangle \bigg\rvert_{\phi =\phi_{opt},\tau =\tau_{max}}}{\sqrt{\langle  q_{_{_{f,d}}},q_{_{_{f,d}}} \rangle}}
+\rho_{_{_{rec}}} = \rho^j_{_{_{f,d}}} = \frac{\langle h^j, q_{_{_{f,d}}}\cdot e^{i(2\pi \tau+\phi)}\rangle \bigg\rvert_{\phi =\phi_{opt},\tau =\tau_{max}}}{\sqrt{\langle  q_{_{_{f,d}}},q_{_{_{f,d}}} \rangle}}
 \end{equation}
 
 
 
-%The maximum recovered SNR, its location in parameter space $(f,d)$, and the computed amplitude averaged quantities \ref{}, and \ref{} will be computed to do an analysis containing all waveform types shown in section \ref{2dsearch} would help us figure out whether the "worse" case with poor length recovery shown in figures \ref{BAM:0021} and \ref{BAM:0115} is somewhat more frequent. 
-
-Let $f_{best}$ and $d_{best}$ be the best matching parameters that fit a monochromatic template \ref{} to a postmerger waveform in the catalog \ref{} with amplitude weighted averages $f_{wei}$ and $d_{wei}$ (see equations \ref{},\ref{}). The following ratios will be computed and used to analyze the whole dataset. 
+Let $f_{best}$ and $d_{best}$ be the parameters of the monochormatic templates that recovers the maximum SNR $\rho_{_{_{rec}}}$ for a given waveform $h^j$ in the catalog. Several other quatities will be used to characterize the waveform dataset and its best matching monochormatic template in terms of signal properties like $d_{wei}$, $f_{wei}$, and physical observables like $M=m_1+m_2$, $q=m_1/m_2$ and $\chi_{_{eff}}$\ref{}.
 
 
-\begin{equation}\label{alpha}
-\alpha = \frac{\rho_{_{_{rec}}}}{\rho_{opt}}
-\end{equation}
+Moreover, the following 2D plane will be used to combine the optimal SNR $\rho_{_{_{opt}}}$ and the ratio $\alpha=\rho_{_{_{rec}}}/\rho_{_{_{opt}}}$ to characterize the whole waveform dataset according to the following criteria:
 
-\begin{equation}\label{beta}
-\beta = \frac{d_{best}}{d_{postm}}
-\end{equation}
+\begin{itemize}
 
-\begin{equation}\label{betawei}
-\beta_{wei} = \frac{d_{best}}{2\cdot d_{wei}}
-\end{equation}
+\item Waveform detectability at 100 MPc, given an optimal SNR threshold of 8, which is picked according to third-generation detector sensitivity and population studies like \cite[section 3]{https://doi.org/10.48550/arxiv.2109.09882}
 
-\begin{equation}\label{gammawei}
-\gamma_{wei} = \frac{f_{best}}{f_{wei}}
-\end{equation}
+\item SNR recovery using the monochormatic model.
 
-Where $\rho_{opt}$ is the waveform's optimal SNR, and $d_{postm}$ is the postmerger cutoff duration defined in section \ref{}. Several 2D planes will be used to characterize the dataset, keeping fixed the optimal SNR in the y-axis, as we are interested in the detectability of waveforms at 100 MPc. We impose an SNR  threshold of 8, which is picked according to third-generation detector sensitivity and population studies like \cite[section 3]{https://doi.org/10.48550/arxiv.2109.09882}
 
+\end{itemize}
 
 \begin{figure}[hbt!]
 \begin{center}
-\includegraphics[width=0.5\textwidth, angle=0]{images/Data_analysis/results/schematics.pdf}
+\includegraphics[width=0.75\textwidth, angle=0]{images/Data_analysis/results/schematics.pdf}
 \captionsetup{width=0.8\textwidth}
 \caption{Detectablity and features of a waveform catalog}
 \caption*{This figure depicts the way the dataset will be divided and characterized in terms of optimal SNR \ref{}, and several other "parameters" \ref{alpha}, \ref{beta}, \ref{betawei}, \ref{gammawei}.}
@@ -379,7 +368,21 @@ Where $\rho_{opt}$ is the waveform's optimal SNR, and $d_{postm}$ is the postmer
 
 \FloatBarrier
 
-Let us begin by replacing the x-axis of figure \ref{regions} with the SNR recovery \ref{}. The following figure shows side by side the SNR recovery vs. the optimal SNR of all waveforms in the dataset. It shows side by side the whole dataset(left) and the waveforms above the optimal SNR threshold(right)
+Where the color coding in the previous plot, will be key to separate subgroups of waveforms that lie in the four different corners of the diagram
+
+\begin{itemize}
+\item Upper left: signals that could be detected at 100 MPc, but the monochromatic model leaves a considerable margin of improvement.
+\item Lower left: signals that would not be detected at 100 MPc, nor the monochromatic, represent a good model for them.
+\item 
+Upper right: possibly detectable waveforms at 100MPc that require simple modeling.
+\item 
+Lower right: non-detectable waveforms at 100MPc that require simple modeling.
+\end{itemize}
+
+Furthermore, such color coding will be extended to histograms of quantities like $d_{wei}$, $f_{wei}$, $\delta=M/M_{TOV}$, $q=m_1/m_2$, and  $\chi_{_{eff}}$ to identify whether there's a waveform clustering in the corners of diagram \ref{}, or rather the dataset is distributed uniformly in the $\rho_{_{opt}}$-$\alpha$ plane.
+
+
+Let us begin by representing the matched filtering results of all waveforms in the $\rho_{_{opt}}$-$\alpha$ plane. The lower bound is drawn at $\alpha=0.65$ and the upper bound at $\alpha=0.80$
 
 
 \begin{figure}[hbt!]
