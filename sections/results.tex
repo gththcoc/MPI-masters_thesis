@@ -97,7 +97,7 @@ q_{_{_{f,d}}}(t) =
 The recovered SNR equation \ref{pul} can be written in terms of the 2-dimensional bank of templates \ref{eq:20}
 
 \begin{equation}\label{eq:21}
-\rho_{_{_{f,d}}} = \frac{\langle h, q_{_{_{f,d}}}\cdot e^{i(2\pi \tau+\phi)}\rangle \bigg\rvert_{\phi =\phi_{opt},\tau =\tau_{max}}}{\sqrt{\langle  q_{_{_{f,d}}},q_{_{_{f,d}}} \rangle}}
+\rho_{rec} := \rho_{_{_{f,d}}} = \frac{\langle h, q_{_{_{f,d}}}\cdot e^{i(2\pi \tau+\phi)}\rangle \bigg\rvert_{\phi =\phi_{opt},\tau =\tau_{max}}}{\sqrt{\langle  q_{_{_{f,d}}},q_{_{_{f,d}}} \rangle}}
 \end{equation}
 
 
@@ -105,7 +105,7 @@ For the sake of simplicity, in this thesis, template banks will be constructed i
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[scale=0.55]{images/Data_analysis/results/param_space.pdf}
+\includegraphics[scale=0.5]{images/Data_analysis/results/param_space.pdf}
 \captionsetup{width=0.8\textwidth}
 \caption{The parameter space of a monochromatic wave}
 \caption*{This figure shows how the parameter space of a monochromatic wave. A mask is applied to discard combinations $(f,d)$ that generate templates with less than one wavelength. The red circle shows the template used in figure \ref{}}
@@ -114,7 +114,7 @@ For the sake of simplicity, in this thesis, template banks will be constructed i
 
 %However, notice that different algorithms address the problem of building template banks optimally, which is beyond the scope of what is presented here\cite{Allen_2021}.
 
-Subsequently, the recovered SNR, normalized by the optimal SNR \ref{sopt}, will be computed at each point of the grid and will be represented as the third dimension using colormaps. 
+Subsequently, the 2D recovered SNR \ref{eq:21} , normalized by the optimal SNR \ref{sopt}, will be computed at each point of the grid and will be represented as the third dimension using colormaps. 
 
 
 The following figure shows how a \textit{Non-spinning equal mass BNS systems} may generate a signal with slow amplitude and frequency variations. Overlapping such waveform against the template model \ref{} produces a colormap where two main regions show SNR peaks: the first between 1.5-2 kHz below 5 ms and the second between 2-2.5 kHz with a peak at 15ms. 
@@ -169,7 +169,7 @@ Below, a few other example waveforms will be overlapped against the template mod
 
 \newpage
 
-\textit{Spinning BNS systems} i.e. $\chi_{eff}>0.2$(see equation \ref{}) have a more complex frequency evolution. The colormap shows two regions of SNR excess: a wide one ranging from 1-2.5 kHz and duration below 5ms, and the other between 3-3.5 kHz with a peak duration around half waveform's duration $d_{postm}$. Notice that both regions have similar amounts of SNR recovery, so even though this example waveform prefers a long high frequency monochromatic segment, in some other cases, it may be a short, low frequency one.
+\textit{Spinning BNS systems} i.e. $\chi_{eff}>0.2$(see equation \ref{chieff}) have a more complex frequency evolution. The colormap shows two regions of SNR excess: a wide one ranging from 1-2.5 kHz and duration below 5ms, and the other between 3-3.5 kHz with a peak duration around half waveform's duration $d_{postm}$. Notice that both regions have similar amounts of SNR recovery, so even though this example waveform prefers a long high frequency monochromatic segment, in some other cases, it may be a short, low frequency one.
 
 \begin{figure}[!htbp]
 \begin{center}
@@ -361,7 +361,7 @@ Moreover, the following 2D plane will be used to combine the optimal SNR $\rho_{
 \includegraphics[width=0.75\textwidth, angle=0]{images/Data_analysis/results/schematics.pdf}
 \captionsetup{width=0.8\textwidth}
 \caption{Detectablity and features of a waveform catalog}
-\caption*{This figure depicts the way the dataset will be divided and characterized in terms of optimal SNR \ref{}, and several other "parameters" \ref{alpha}, \ref{beta}, \ref{betawei}, \ref{gammawei}.}
+\caption*{This figure depicts the way the dataset will be divided and characterized in terms of optimal SNR \ref{}, and }
 \label{regions}
 \end{center} 
 \end{figure}
@@ -409,26 +409,26 @@ Lower right: non-detectable waveforms at 100MPc that require simple modeling.
 
 \newpage
 
-In what follows, histograms will be used to count where   "red" and "green" sample waveforms lie in other dimensions. The same separation will be used to establish a difference between waveforms above and below the optimal SNR threshold.
-
-First, consider histograms for the amplitude weighted frequency and duration.
+In what follows, histograms will be used to count where "red" and "green" crosses lie in other dimensions. First, consider histograms for the amplitude weighted frequency and duration.
 
 \begin{figure}[hbt!]
 \begin{center}
-\includegraphics[width=0.8\textwidth, angle=0]{images/Data_analysis/results/alpha_dhist.pdf}
+\includegraphics[width=0.6\textwidth, angle=0]{images/Data_analysis/results/alpha_dhist.pdf}
+\captionsetup{width=0.8\textwidth}
 \caption{Amplitude weighted durations in the catalogs}
+\caption*{This figure shows the distribution of amplitude weighted durations (see equation \ref{dwei}) for all waveforms(left) and only waveforms above the optimal SNR threshold(right). The bar color is set according to the SNR recovery $\alpha$ as in figure \ref{ascatter}.}
 \label{adhist}
 \end{center}
-%This figure shows two histograms for the amplitude weighted duration $2\cdot d_{wei}$; It follows the recovery color scheme of figure \ref{regions}. The one on the left accounts for the whole set of waveforms, and the one on the right, only the ones lying above the threshold.
 \end{figure}
 
 \begin{figure}[hbt!]
 \begin{center}
-\includegraphics[width=0.8\textwidth, angle=0]{images/Data_analysis/results/alpha_fhist.pdf}
+\includegraphics[width=0.6\textwidth, angle=0]{images/Data_analysis/results/alpha_fhist.pdf}
+\captionsetup{width=0.8\textwidth}
 \caption{Amplitude weighted frequencies in the catalogs}
+\caption*{This figure shows the distribution of amplitude weighted frequencies (see equation \ref{fwei}) for all waveforms(left) and only waveforms above the optimal SNR threshold(right). The bar color is set according to the SNR recovery $\alpha$ as in figure \ref{ascatter}.}
 \label{afhist}
 \end{center}
-%This figure shows two histograms for the amplitude weighted frequency $f_{wei}$; It follows the recovery color scheme of figure \ref{regions}. The one on the left accounts for the whole set of waveforms, and the one on the right, only the ones lying above the threshold.
 \end{figure}
 \FloatBarrier
 
@@ -440,24 +440,26 @@ Moreover, the red samples tell us how the monochromatic template model struggles
 
 \newpage 
 
-With regards to the parameters found for the monochromatic match on each waveform of the catalog, we can use the histograms for the quantities  $\beta$ and $\gamma_{wei}$ 
+With regards to the parameters found for the best matching monochromatic template on each waveform of the catalog, we can use the histograms for the quantities  $\beta$ and $\gamma_{wei}$ 
 
 \begin{figure}[hbt!]
 \begin{center}
-\includegraphics[width=0.8\textwidth, angle=0]{images/Data_analysis/results/alpha_betahist.pdf}
+\includegraphics[width=0.6\textwidth, angle=0]{images/Data_analysis/results/alpha_betahist.pdf}
+\captionsetup{width=0.8\textwidth}
 \caption{Duration recovery in the catalogs}
+\caption*{This figure shows the distribution of $\beta=d_{best}/d_{postm}$ for all waveforms(left) and only waveforms above the optimal SNR threshold(right). The bar color is set according to the SNR recovery $\alpha$ as in figure \ref{ascatter}.}
 \label{abhist}
 \end{center}
-%This figure shows two histograms for the ratio of durations  $\beta$ defined in equation \ref{beta}; It follows the recovery color scheme of figure \ref{regions}. The one on the left accounts for the whole set of waveforms, and the one on the right, only the ones lying above the threshold.
 \end{figure}
 
 \begin{figure}[hbt!]
 \begin{center}
-\includegraphics[width=0.8\textwidth, angle=0]{images/Data_analysis/results/alpha_gammahist.pdf}
+\includegraphics[width=0.6\textwidth, angle=0]{images/Data_analysis/results/alpha_gammahist.pdf}
+\captionsetup{width=0.8\textwidth}
 \caption{Frequency recovery in the catalogs}
+\caption*{This figure shows the distribution of $\gamma_{wei}=f_{best}/f_{wei}$ for all waveforms(left) and only waveforms above the optimal SNR threshold(right). The bar color is set according to the SNR recovery $\alpha$ as in figure \ref{ascatter}.}
 \label{aghist}
 \end{center}
-%This figure shows two histograms for the ratio of durations  $\gamma_{wei}$ defined in equation \ref{gammawei}; It follows the recovery color scheme of figure \ref{regions}. The one on the left accounts for the whole set of waveforms, and the one on the right, only the ones lying above the threshold.
 \end{figure}
 \FloatBarrier
 
@@ -469,22 +471,24 @@ Let us now take a look at physical observables like the system's total mass, mas
 
 \begin{figure}[hbt!]
 \begin{center}
-\includegraphics[width=0.8\textwidth, angle=0]{images/Data_analysis/results/alpha_deltahist.pdf}
+\includegraphics[width=0.6\textwidth, angle=0]{images/Data_analysis/results/alpha_deltahist.pdf}
+\captionsetup{width=0.8\textwidth}
 \caption{Total mass of the systems in the catalogs}
+\caption*{This figure shows the distribution of $\delta=M/M_{TOV}$ for all waveforms(left) and only waveforms above the optimal SNR threshold(right). The bar color is set according to the SNR recovery $\alpha$ as in figure \ref{ascatter}.}
 \label{adelhist}
 \end{center}
-%This figure shows two histograms for the physical obsevable $\delta$ defined in equation \ref{delta}; It follows the recovery color scheme of figure \ref{regions}. The one on the left accounts for the whole set of waveforms, and the one on the right, only the ones lying above the threshold.
 \end{figure}
 
 Counting the waveforms lying in the region where $\delta>1.6$, one can see that the green bars present in the whole dataset(left) disappear in the above threshold dataset(right). Such a set of signals can be identified as short high-frequency signals that belong to heavy systems. 
 
 \begin{figure}[hbt!]
 \begin{center}
-\includegraphics[width=0.8\textwidth, angle=0]{images/Data_analysis/results/alpha_qhist.pdf}
+\includegraphics[width=0.6\textwidth, angle=0]{images/Data_analysis/results/alpha_qhist.pdf}
+\captionsetup{width=0.8\textwidth}
 \caption{Mass ratio of the systems in the catalogs}
+\caption*{This figure shows the distribution of $q=m_1/m_2$ for all waveforms(left) and only waveforms above the optimal SNR threshold(right). The bar color is set according to the SNR recovery $\alpha$ as in figure \ref{ascatter}.}
 \label{aqhist}
 \end{center}
-%This figure shows two histograms for the mass ratio $q$; It follows the recovery color scheme of figure \ref{regions}. The one on the left accounts for the whole set of waveforms, and the one on the right, only the ones lying above the threshold.
 \end{figure}
 
 The waveform dataset is dominated by equal mass waveforms, so by looking at the few waveform samples with high mass ratio $q=m_1/m_2>1.6$, one can see that the green bars survive the threshold cut, which means they lie in the upper right region of plot \ref{}, making them good candidates for detection.
@@ -492,15 +496,16 @@ The waveform dataset is dominated by equal mass waveforms, so by looking at the 
 
 \newpage
 
-Finally, spinning BNS systems, i.e., $\chi_{eff}>0.2$, are also a small subset in this catalog, as many waveforms come from non-spinning systems. Nevertheless, one can also see that the green bars survive the threshold cut, which means they lie in the upper right region of plot \ref{}, making them good candidates for detection.
+Finally, spinning BNS systems, i.e., $\chi_{eff}>0.2$ (see equation \ref{chieff}), are also a small subset in this catalog, as many waveforms come from non-spinning systems. Nevertheless, one can also see that the green bars survive the threshold cut, which means they lie in the upper right region of plot \ref{}, making them good candidates for detection.
 
 \begin{figure}[hbt!]
 \begin{center}
-\includegraphics[width=0.8\textwidth, angle=0]{images/Data_analysis/results/alpha_chihist.pdf}
+\includegraphics[width=0.6\textwidth, angle=0]{images/Data_analysis/results/alpha_chihist.pdf}
+\captionsetup{width=0.8\textwidth}
 \caption{Spining systems in the catalogs}
+\caption*{This figure shows the distribution of $\chi_eff$ (see equation \ref{chieff}) for all waveforms(left) and only waveforms above the optimal SNR threshold(right). The bar color is set according to the SNR recovery $\alpha$ as in figure \ref{ascatter}.}
 \label{achihist}
 \end{center}
-This figure shows two histograms for the effective spin parameter $\chi_eff$ defined in equation \ref{chieff}; It follows the recovery color scheme of figure \ref{regions}. The one on the left accounts for the whole set of waveforms, and the one on the right, only the ones lying above the threshold.
 \end{figure}
 
 \FloatBarrier
