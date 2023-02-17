@@ -61,10 +61,9 @@ And is used to depict how the information of a signal that looks complicated may
 
 \begin{figure}[hbt!]
 \begin{center}
-\includegraphics[width=0.6\textwidth, angle=0]{images/Data_analysis/sig_proc/2_1.pdf}
+\includegraphics[width=0.8\textwidth, angle=0]{images/Data_analysis/sig_proc/2_1.pdf}
 \captionsetup{width=0.8\textwidth}
-\caption{Spectral analysis of a "complicated" time-series.}
-\caption*{This figure shows a time-domain representation of equation \ref{tS}(top). Its amplitude spectrum(lower left) and phase spectrum(lower right) help unveil the signal content. Notice that the signal in the upper panel has been multiplied by a Tukey window with parameter 0.1 to avoid spectral leakage.}
+\caption[Spectral analysis of a "complicated" time-series]{Spectral analysis of a "complicated" time series. This figure shows a time domain representation of equation \ref{tS}(top). Its amplitude spectrum(lower left) and phase spectrum(lower right) help unveil the signal content. Notice that the signal in the upper panel has been multiplied by a Tukey window with parameter 0.1 to avoid spectral leakage when using DFTs.}
 \label{fig:1}
 \end{center}
 \end{figure}
@@ -76,22 +75,41 @@ And is used to depict how the information of a signal that looks complicated may
 
 Some other techniques like spectrograms and the Q-transform used by the LVK collaboration \cite{LIGOScientific:2017vwq} have been widely used to highlight the frequency content and evolution of a signal and rely on Fourier transforms at their core. The following picture serves as an example of how a BNS GW signal can be represented in the time-frequency plane to identify the power of its frequency components throughout its whole evolution.
 
-
-\begin{figure}[hbt!]
+\begin{figure}[!htbp]
 \begin{center}
-\begin{tabular}{cc}
-\includegraphics[width=0.45\textwidth, angle=0]{images/Data_analysis/sig_proc/2_2L.pdf}
-
-\includegraphics[width=0.45\textwidth, angle=0]{images/Data_analysis/sig_proc/2_2R.pdf}
-\end{tabular}
-\end{center}
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{10pt}
+%\raggedleft
+\includegraphics[scale=0.45]{images/Data_analysis/sig_proc/2_2R.pdf}
+\end{minipage}%
+\begin{minipage}[t]{0.5\linewidth}
+\vspace{10pt}
+%\raggedright
+\includegraphics[scale=0.4]{images/Data_analysis/sig_proc/2_2L.pdf}
+\end{minipage}
 \captionsetup{width=0.8\textwidth}
-\caption{Time-frequency representation of a BNS waveform.}
-\caption*{This figure represents a BNS waveform taken from the CoRe BNS catalog \cite{Dietrich:2018phi}. It establishes a parallelism between what one can read from its time-domain representation(left) and the additional information that can be extracted from a spectrogram(right).}
+\caption[Time-frequency representation of a BNS waveform]{Time-frequency representation of a BNS waveform. This figure shows the spectrogram of the BNS waveform BAM:0035 taken from the CoRe BNS catalog \cite{Dietrich:2018phi}. It depicts how useful a time-frequency plot(left) can be compared to the raw time domain representation of a GW signal(right) since the dominant frequency components can be read throughout its evolution.}
 \label{fig:2}
+\end{center}
 \end{figure}
 
 \FloatBarrier
+
+%
+%\begin{figure}[hbt!]
+%\begin{center}
+%\begin{tabular}{cc}
+%\includegraphics[width=0.4\textwidth, angle=0]{images/Data_analysis/sig_proc/2_2L.pdf}
+%
+%\includegraphics[width=0.4\textwidth, angle=0]{images/Data_analysis/sig_proc/2_2R.pdf}
+%\end{tabular}
+%\end{center}
+%\captionsetup{width=0.8\textwidth}
+%\caption[Time-frequency representation of a BNS waveform]{Time-frequency representation of a BNS waveform. This figure shows the spectrogram of the BNS waveform BAM:0035 taken from the CoRe BNS catalog \cite{Dietrich:2018phi}. It depicts how useful a time-frequency plot(left) can be compared to the raw time domain representation of a GW signal(right) since the dominant frequency components can be read throughout its evolution.}
+%\label{fig:2}
+%\end{figure}
+%
+%\FloatBarrier
 
 In gravitational-wave astronomy, such a simple bijection mapping between both domains has been widely used. Depending on the problem, some modeled and unmodelled search algorithms, as well as waveform models, rely on either one representation or the other to improve computational performance. However, the simplicity of Fourier transforms gives much flexibility to go back and forth between the time and frequency domain while developing filtering algorithms. 
 
@@ -239,8 +257,7 @@ $$corr_\tau = [...,0,0,0,0,0,1,2,1,0,0,0 ,...]$$
 \begin{center}
 \includegraphics[width=0.8\textwidth, angle=0]{images/Data_analysis/sig_proc/corr.pdf}
 \captionsetup{width=0.8\textwidth}
-\caption{Discrete cross-correlation of two box-pulses}
-\caption*{Time domain representation of 2 timeshifted boxcar pulses(left) and the results of their convolution and cross-correlation(right). Notice that both operations are each other's time reversal.}
+\caption[Discrete cross-correlation of two box-pulses]{Discrete cross-correlation of two box pulses. This figure shows the time domain representation of 2 timeshifted boxcar pulses(left) and the results of their convolution \ref{eq:3} and cross-correlation \ref{eq:4}(right). Notice that both operations are each other's time reversal.}
 \label{fig:3}
 \end{center}
 \end{figure}
@@ -270,10 +287,9 @@ In contrast to the ideal scenario shown in figure \ref{fig:2} where the signal c
 
 \begin{figure}[hbt!]
 \begin{center}
-\includegraphics[width=0.5\textwidth, angle=0]{images/170817mult.png}
+\includegraphics[width=0.6\textwidth, angle=0]{images/170817mult.png}
 \captionsetup{width=0.8\textwidth}
-\caption{Multidetector detection of GW170817 without glitch.}
-\caption*{This image was taken from \cite{LIGOScientific:2017vwq}. It shows the spectrogram computed around the GW170817 event for the LIGO-Virgo detector network.}
+\caption[Multidetector detection of GW170817 without glitch]{Multidetector detection of GW170817 without the glitch. This image was taken from \cite{LIGOScientific:2017vwq}. It shows the spectrogram computed around the GW170817 event for the LIGO-Virgo detector network.}
 \label{ofeijf}
 \end{center}
 
@@ -288,10 +304,9 @@ However, it is important to remark that the matched filtering algorithm can beco
 
 \begin{figure}[hbt!]
 \begin{center}
-\includegraphics[width=0.5\textwidth, angle=0]{images/170817.png}
+\includegraphics[width=0.6\textwidth, angle=0]{images/170817.png}
 \captionsetup{width=0.8\textwidth}
-\caption{The glitch around GW170817}
-\caption*{This image was taken from \cite{LIGOScientific:2017vwq}. It shows the time series (top) from LIGO Livingston around the event GW170817 and its time-frequency representation(bottom). Notice the glitch masking the high-frequency part of the chirping signature.}
+\caption[The glitch around GW170817]{The glitch around GW170817. This image was taken from \cite{LIGOScientific:2017vwq}. It shows the time series (top) from LIGO Livingston around the event GW170817 and its time-frequency representation(bottom). Notice the glitch masking the high-frequency part of the chirping signature.}
 \label{ijenfo}
 \end{center}
 \end{figure}
@@ -446,9 +461,7 @@ Where M is called \textit{mismatch}, and $\alpha$ can be used to talk naturally 
 \begin{center}
 \includegraphics[width=0.8\textwidth, angle=0]{images/Data_analysis/results/ex_search.pdf}
 \captionsetup{width=0.8\textwidth}
-\caption{From SNR to the optimal timeshift and phaseshift.}
-\caption*{This figure shows the overlap of one postmerger GW signal(blue) with a monochromatic template with parameters $\mathrm{f=2270}$ Hz and $\mathrm{d=6.4}$ ms (orange). It depicts how the optimal phase and timeshift are selected.
-}
+\caption[From SNR to the optimal timeshift and phaseshift]{From SNR time series to optimal timeshift and phaseshift. This figure shows the overlap of a postmerger GW signal (blue) and monochromatic template with parameters $\mathrm{f=2270}$ Hz and $\mathrm{d=6.4}$ ms (orange). The middle panel shows the envelope and real part of the complex SNR time series \ref{eq:17} normalized by the waveform's optimal SNR \ref{sopt} and its complex phase(bottom). Notice that the optimal phase and timeshift are selected at the maximum SNR.}
 \label{fig:7}
 \end{center}
 \end{figure}
@@ -494,10 +507,10 @@ Executing the matched filtering algorithm to compute the overlap \ref{eq:17} can
 \begin{center}
 
 \includegraphics[width=\textwidth, angle=0]{images/comparison.pdf}
-\caption{Algorithm implementation comparison flowchart}
+\captionsetup{width=0.8\textwidth}
+\caption[Matched filtering algorithm: ideal vs realistic flowchart]{Algorithm implementation comparison flowchart. This figure compares an ideal implementation of the matched filtering algorithm according to equation \ref{eq:17} (left) and a more realistic implementation considering all technical details(right).}
 \label{fig:8}
 \end{center}
-This figure establishes a parallel between an ideal implementation of the matched filtering algorithm according to equation \ref{eq:17} (left) and a more realistic implementation considering all technical details(right).
 \end{figure}
 
 \FloatBarrier
