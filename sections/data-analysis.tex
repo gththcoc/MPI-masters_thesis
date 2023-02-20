@@ -2,13 +2,13 @@
 
 The quest to detect weak gravitational wave signals produced by CBCs has required technological improvements in the instruments and optimal filtering techniques. Different approaches have used either time domain or frequency domain representations of data and waveform models to take advantage of the currently available computing power and numerical methods.
 
-Fortunately, the extraction of such waves from noisy data can be translated into a well-posed mathematical problem: filter out a signal of known/partially-known shape from a noise-dominated set of samples \cite{Maggiore:2007ulw, Creighton:2011zz, Sathyaprakash:2009xs}. The theory of linear filters has been used to attack such a problem ever since the existence of radar\cite{Wainstein:1962vrq}. It has a complete mathematical infrastructure that can be used to search for signals buried in noise and further estimate their parameters using the bayesian statistics framework.
+Fortunately, the extraction of such waves from noisy data can be translated into a well-posed mathematical problem: filter out a signal of known/partially-known shape from a noise-dominated set of samples \cite{Maggiore:2007ulw, Creighton:2011zz, Sathyaprakash:2009xs}. The theory of linear filters has been used to attack such a problem ever since the existence of radar\cite{Wainstein:1962vrq}. It has a complete mathematical infrastructure that can be used to search for signals buried in noise and further estimate their parameters using the Bayesian statistics framework.
 
 
 
 \section{Signal processing: time series and the frequency domain}
 
-Gravitational wave strain data from ground-based L-shaped detectors is currently provided by the LVK collaboration through the GWOSC portal and is made publicly available a few months after each observing run ends \cite[section-3]{LIGOScientific:2019lzm}. This data is obtained from the L-shaped interferometers where a photodiode's readout is sampled at 4 or 16 kHz.
+Gravitational wave strain data from ground-based L-shaped detectors is currently provided by the LVK collaboration through the GWOSC portal and is made publicly available a few months after each observing run ends \cite[section-3]{LIGOScientific:2019lzm}. This data is obtained from the interferometers where a photodiode's readout is sampled at 4 or 16 kHz.
 
 
 %is translated into equivalent armlength changes, or variations in the proper distances between the test masses denoted as strain, i.e., $\delta l/L$, and sampled in time either at 4 or 16kHz. 
@@ -111,7 +111,7 @@ Some other techniques like spectrograms and the Q-transform used by the LVK coll
 %
 %\FloatBarrier
 
-In gravitational-wave astronomy, such a simple bijection mapping between both domains has been widely used. Depending on the problem, some modeled and unmodelled search algorithms, as well as waveform models, rely on either one representation or the other to improve computational performance. However, the simplicity of Fourier transforms gives much flexibility to go back and forth between the time and frequency domain while developing filtering algorithms. 
+In gravitational-wave astronomy, the simplicity of Fourier transforms gives much flexibility to go back and forth between the time and frequency domain while developing filtering algorithms. Depending on the problem, some modeled and unmodelled search algorithms \cite{Drago:2020kic,Cornish_2015}, as well as waveform models, rely on either one representation or the other to improve computational performance.
 
 
 \section{Convolution and cross-correlation}
@@ -146,7 +146,7 @@ $corr_\tau:$&$\mathcal{F}\times\mathcal{F}$ & $\rightarrow$ & $\mathcal{F}$ \\
 
 \vspace{1cm}
 
-Both operators can be represented easily in the time and frequency domains. In the time domain, they take the form of integral operators 
+In the time domain, they take the form of integral operators 
 
 \begin{equation}\label{eq:3}
 conv(h, q)(\tau)= \int_{-\infty}^{\infty} h(t)q(t-\tau)dt
@@ -182,7 +182,7 @@ corr_{\tau} = \sum_{n=\infty}^{\infty} (h^*_{n} \cdot q_{n+\tau}) \cdot \Delta t
 Where $h_i$ and $q_j$  are the values of $\vec{h}$, $\vec{q}$ along the time axis. One can read $corr_\tau$ as the components of a finite array where each component represents  the result of a 3-step operation between $\vec{q^*}$ and $\vec{h}$:
 
 \begin{enumerate}
-\item A slide(shift) of $\vec{q^*}$ in the time axis.
+\item A slide (shift) of $\vec{q^*}$ in the time axis.
 \item A slot-wise multiplication.
 \item A sum of all $\tau$ components
 \end{enumerate}
@@ -306,7 +306,7 @@ However, it is important to remark that the matched filtering algorithm can beco
 \begin{center}
 \includegraphics[width=0.6\textwidth, angle=0]{images/170817.png}
 \captionsetup{width=0.8\textwidth}
-\caption[The glitch around GW170817]{The glitch around GW170817. This image was taken from \cite{LIGOScientific:2017vwq}. It shows the time series (top) from LIGO Livingston around the event GW170817 and its time-frequency representation(bottom). Notice the glitch masking the high-frequency part of the chirping signature.}
+\caption[The glitch around GW170817]{The glitch around GW170817. This image was taken from \cite{LIGOScientific:2017vwq}. It shows the time series (top) from LIGO Livingston around the event GW170817 and its time-frequency representation(bottom). Notice the glitch masking the high-frequency part of the chirping GW signal.}
 \label{ijenfo}
 \end{center}
 \end{figure}
@@ -369,7 +369,7 @@ So that we can optimize over the phase by taking the complex magnitude on both s
 \begin{center}
 
 \includegraphics[width=0.4\textwidth, angle=0]{images/ph_opt.png}
-\caption{Phase optimization in the complex plane}
+\caption{Matched filter's phase optimization in the complex plane}
 \label{fig:6}
 \end{center}
 \end{figure}
@@ -433,7 +433,7 @@ The recovered SNR $\rho(\tau)$, also called "overlap" when optimizing over the p
 }
 \end{equation}
 
-It can be shown that the optimal SNR(see \cite[chapter 5]{Sathyaprakash:2009xs}) is given by the inner product of the signal with itself
+It can be shown that the optimal SNR (see \cite[chapter 5]{Sathyaprakash:2009xs}) is given by the inner product of the signal with itself
 
 \begin{equation}
 \rho_{opt} = \langle h,h \rangle^{\frac{1}{2}} = \left[4\cdot\int_{0}^{\infty} \frac{h(f)h^{*}(f)}{S_n(f)}df\right]^{\frac{1}{2}}
@@ -454,14 +454,14 @@ M = 1-\frac{\rho(\tau)|_{\tau_{max}}}{\rho_{opt}}
 \alpha = \frac{\rho(\tau)|_{\tau_{max}}}{\rho_{opt}} \rightarrow \alpha = 1-M
 \end{equation}
 
-Where M is called \textit{mismatch}, and $\alpha$ can be used to talk naturally about SNR recovery percentages. The following figure shows the results obtained from overlapping a BNS postmerger waveform with a finite monochromatic wave. Notice that  the optimal values for $\tau$ and $\phi_0$ are taken at the maximum of SNR envelope(middle panel)
+Where M is called \textit{mismatch}, and $\alpha$ can be used to talk naturally about SNR recovery percentages. The following figure shows the results obtained from overlapping a BNS postmerger waveform with a finite monochromatic wave. Notice that  the optimal values for $\tau$ and $\phi_0$ are taken at the maximum of SNR envelope (middle panel)
 
 
 \begin{figure}[hbt!]
 \begin{center}
 \includegraphics[width=0.8\textwidth, angle=0]{images/Data_analysis/results/ex_search.pdf}
 \captionsetup{width=0.8\textwidth}
-\caption[From SNR to the optimal timeshift and phaseshift]{From SNR time series to optimal timeshift and phaseshift. This figure shows the overlap of a postmerger GW signal (blue) and monochromatic template with parameters $\mathrm{f=2270}$ Hz and $\mathrm{d=6.4}$ ms (orange). The middle panel shows the envelope and real part of the complex SNR time series \ref{eq:17} normalized by the waveform's optimal SNR \ref{sopt} and its complex phase(bottom). Notice that the optimal phase and timeshift are selected at the maximum SNR.}
+\caption[Computing the matched filter's optimal phase and timeshift]{Computing the Matched filter's optimal phase and timeshift. This figure shows the overlap of a postmerger GW signal (blue) and monochromatic template with parameters $\mathrm{f=2270}$ Hz and $\mathrm{d=6.4}$ ms (orange). The middle panel shows the envelope and real part of the complex SNR time series \ref{eq:17} normalized by the waveform's optimal SNR \ref{sopt} and its complex phase(bottom). Notice that the optimal phase and timeshift are selected at the maximum SNR.}
 \label{fig:7}
 \end{center}
 \end{figure}
@@ -472,17 +472,17 @@ Where M is called \textit{mismatch}, and $\alpha$ can be used to talk naturally 
 
 \section{Ideal vs. real implementation}
 
-Executing the matched filtering algorithm to compute the overlap \ref{eq:17} can become an extremely tricky and computationally expensive task. The following is a list of technical details that must be taken into account to get consistent results:
+Executing the matched filtering algorithm to compute the overlap \ref{eq:17} can become extremely tricky and computationally expensive. The following is a list of technical details that must be taken into account to get consistent results:
 
 \begin{itemize}
 
 \item Signal and template
 	\begin{itemize}
 	
-	\item Signal and template must have the same sampling rate $dt$ and the same length $N$. Most numerical methods for computing DFTs just probe a finite amount of frequency bins, i.e., up to Nyquist frequency. For this reason, the sampling rate and the length of both signals will affect the frequency domain spacing $\mathrm{\Delta f}=\frac{1}{N\cdot dt}$.
+	\item Signal and template must have the same sampling rate $\Delta t$ and length $N$. Most numerical methods for computing DFTs probe a finite amount of frequency bins, i.e., up to Nyquist frequency. For this reason, the sampling rate and the length of both signals will affect the frequency domain spacing $\mathrm{\Delta f}=\frac{1}{N\cdot \Delta t}$.
 	
 	\item Zero-padding signals is important. Such a technique helps add enough space for templates to slide against the data, which helps avoid boundary effects when computing DFTs.
-	\item Choosing the right windowing technique helps resolve better signals that have a "rich spectrum." Spectral leakage is something to worry about when computing DFTs. Signals with an amplitude spectrum with several peaks in neighboring frequency bins will be hard to resolve unless a tapering window function has been applied.
+	\item Choosing the right windowing technique helps resolve better signals with a "rich spectrum." Spectral leakage is something to worry about when computing DFTs. Signals with an amplitude spectrum with several peaks in neighboring frequency bins will be hard to resolve unless a tapering window function has been applied.
 	
 	\item The overlap function must be computed for more than one template. Existing waveform models with $n$-free parameters are known as "template banks." Such generalization turns the inner product \ref{eq:13} into the following n-dimensional object that can become very expensive to compute
 	
@@ -495,9 +495,9 @@ Executing the matched filtering algorithm to compute the overlap \ref{eq:17} can
 \item Power spectral density
 	\begin{itemize}
 	
-	\item In general, current ground based detector design curves are provided with a non-uniform sampling rate in the frequency space \cite{Reitze:2019dyk} with cutoffs between 10 Hz and 5 kHz. Because of that, interpolation techniques must be used to define them in the same frequency bins as the data and templates up to Nyquist frequency.
-	\item Detector design curves come with a gap between 0 and 10Hz. Since standard FFT methods require having the zero frequency bin included, one has to figure out a way to fill such a gap. This work uses a 2-step approach: computes the inverse PSD between 10 Hz and Nyquist frequency, and then zeropads between [0-10Hz) to avoid dividing by zero in equation \ref{eq:13}.
-	\item Standard FFT methods need the negative frequency bins. For that reason, one has to mirror the real-valued PSD to the negative frequency bins.
+	\item In general, current ground based detector PSD curves are provided with a non-uniform sampling rate in the frequency space \cite{Reitze:2019dyk} with cutoffs between 10 Hz and 5 kHz. Because of that, interpolation techniques must be used to define them in the same frequency bins as the data and templates up to Nyquist frequency.
+	\item Detector design curves come with a gap between 0 and 10Hz. Since standard FFT methods require having the zero frequency bin included, one has to figure out a way to fill such a gap. This work uses a 2-step approach: computes the inverse PSD between 10 Hz and Nyquist frequency, and zeropads between 0-10Hz to avoid dividing by zero in equation \ref{eq:13}.
+	\item Standard FFT methods need negative frequency bins. For that reason, one has to mirror the real-valued PSD to the negative frequency bins.
 	\end{itemize}
 
 \end{itemize}
@@ -514,6 +514,7 @@ Executing the matched filtering algorithm to compute the overlap \ref{eq:17} can
 \end{figure}
 
 \FloatBarrier
+
 
 
 

@@ -2,9 +2,10 @@
 
 The need for a complete theory of gravity became evident in the 19th century. Astronomical observations yielded data that violated the predictions of Newtonian gravity, among them mercury's perihelion shift\cite{1859AnPar...5....1L}, light deflection by the sun \cite{1920RSPTA.220..291D}, gravitational redshift in Sirius B \cite{2010JHA....41...41H}, and others. So far, Einstein's general relativity(GR) has proven accurate in describing these phenomena. In particular, as far as this research is concerned, it describes well the evolution and structure of the most compact objects in the universe: black holes and neutron stars, as well as binary systems that contain them.
 
-GR has predicted that binary systems of compact objects lose radial separation due to significant emission of gravitational radiation. Such effects have been frequently observed in BNS systems by Hulse and Taylor \cite{Weisberg:1981mt} and LIGO\cite{LIGOScientific:2017vwq}, BBH by LIGO and Virgo \cite{LIGOScientific:2016aoc}, and NSBH by LIGO Virgo and KAGRA\cite{LIGOScientific:2021qlt}. Unfortunately, since the two-body problem in GR has no analytical solution, such systems, and their gravitational waves must be studied by approximate and semi-analytical methods in their premerger stage or by numerical methods if one intends to study the complete evolution of the inspiral-merger-postmerger system\cite{Dietrich:2018phi}.
+GR has predicted that binary systems lose radial separation due to significant emission of gravitational radiation. Such effects have been frequently observed in BNS systems by Hulse and Taylor \cite{Weisberg:1981mt} and LIGO \cite{LIGOScientific:2017vwq}, BBH by LIGO and Virgo \cite{LIGOScientific:2016aoc}, and NSBH by LIGO, Virgo and KAGRA \cite{LIGOScientific:2021qlt}. Unfortunately, since the two-body problem in GR has no analytical solution, such systems, and their gravitational waves must be studied by approximate and semi-analytical methods in their premerger stage or by numerical methods if one intends to study the complete evolution of the inspiral-merger-postmerger system \cite{Dietrich:2018phi}.
 
-Although Einstein's general relativity is a broad theory with relevant consequences in several areas of astrophysics, the following section intends to make a simple introduction to the field equations, motivated by several sources such as the books by Inverno\cite{inverno}, Wald\cite{Wald:1984rg}, and Carroll\cite{carroll-notes}. Later it develops in a detailed way relativistic aspects of the physics of stars in hydrostatic equilibrium and gravitational waves, following in general lines, what is presented in the books of Weinberg\cite{Weinberg:1972kfs} and Hartle\cite{Hartle:2021pel}.
+Although Einstein's general relativity is a broad theory with relevant consequences in several areas of astrophysics, the following section intends to make a simple introduction to the field equations of gravitation, motivated by several sources such as the books by Inverno \cite{inverno}, Wald \cite{Wald:1984rg}, and Carroll \cite{carroll-notes}. Later it develops in a detailed way relativistic aspects of the physics of stars in hydrostatic equilibrium and gravitational waves, following in general lines, what is presented in the books of Weinberg \cite{Weinberg:1972kfs} and Hartle \cite{Hartle:2021pel}.
+
 
 
 
@@ -12,7 +13,7 @@ Although Einstein's general relativity is a broad theory with relevant consequen
 
 After revolutionizing physics with the theory of special relativity in 1905 \cite{Einstein:1905}, Einstein took a few more years to elaborate a more general theory that could intrinsically include gravity in spacetime's geometry \cite{Einstein:1915ca}.
 
-Various physical ideas and principles led Einstein to derive his field equations. In particular, Mach's principle \cite{mach1919science, 1995mpfn.conf.....B} and the equivalence principle largely influenced his theory. The geometry of spacetime, being responsible for the inertial motion of bodies and the mass/energy distribution of the universe contributing to that inertia, led Einstein to a set of tensor field equations relating the spacetime metric and its derivatives to the energy-momentum tensor of matter and fields living in it. However, other methods have been used to obtain the field equations, such as Hilbert \cite{Hilbert:1915tx} and Lovelock \cite{Lovelock:1971yv}. 
+Various physical ideas and principles led Einstein to derive his field equations. In particular, Mach's principle \cite{mach1919science, 1995mpfn.conf.....B} and the equivalence principle largely influenced his theory. The geometry of spacetime, being responsible for the inertial motion of bodies and the mass/energy distribution of the universe contributing to that inertia, led Einstein to a set of tensor field equations relating the spacetime metric and its derivatives to the energy-momentum tensor of matter and fields living in it. However, other methods have been used to obtain the field equations, such as Hilbert's \cite{Hilbert:1915tx} and Lovelock's \cite{Lovelock:1971yv}. 
 
 In 3+1 dimensions, Einstein's field equations are a set of 10 independent, second-order, coupled, nonlinear partial differential equations over the spacetime metric $g_{\mu \nu}$, that can be written in the following two compact forms:
 
@@ -24,10 +25,10 @@ G_{\mu\nu}  =  \frac{8\pi G}{c^4} \cdot T_{\mu\nu},
 R_{\mu\nu}  =  \frac{8\pi G}{c^4} \cdot (T_{\mu\nu} - \frac{1}{2} g_{\mu\nu} T).
 \end{equation}
 
-Where G and c are the gravitational constant and the speed of light in vacuum. The left-hand side of the equations is composed of the Einstein tensor $G_{\mu\nu}$, which is a combination of $R_{\mu\nu}$, $R$ called Ricci tensor, Ricci scalar. Definitions are listed below to help unveil that equations \ref{EFE} and \ref{EFE-ricci} are, in fact, partial differential equations for the metric components $g_{\mu\nu}$:
+Where G and c are the gravitational constant and the speed of light in vacuum. The left-hand side of the equations is composed of the Einstein tensor $G_{\mu\nu}$, which is a combination of $R_{\mu\nu}$, $R$ called Ricci tensor, Ricci scalar. Definitions are listed below to help unveil that equations \ref{EFE} and \ref{EFE-ricci} are, in fact, partial differential equations for the metric components $g_{\mu\nu}$.
 
 
-\begin{itemize}
+\begin{itemize}[leftmargin=*]
 \item Christoffel symbols
 
 \begin{equation}\label{christoffel}
@@ -61,7 +62,7 @@ G_{\mu\nu} = R_{\mu\nu} - \frac{1}{2} g_{\mu\nu} R
 
 \end{itemize}
 
-On the other hand, the right-hand side of the equations \ref{EFE} contains information about the fluids, particles, and fields in spacetime. Spacetime and stress-energy are coupled, such that physically relevant solutions to the field equations must satisfy $\nabla_{\mu} T^{\mu\nu} = 0$, since the second Bianchi identity leads to zero divergence of the Einstein tensor $\nabla_{\mu}G^{\mu\nu} = 0$ (see \cite{inverno, Wald:1984rg, Weinberg:1972kfs}).
+On the other hand, the right-hand side of the equations \ref{EFE} contains information about the fluids, particles, and fields in spacetime. Spacetime and stress-energy are coupled, such that physically relevant solutions to the field equations must satisfy $\nabla_{\mu} T^{\mu\nu} = 0$, since the second Bianchi identity leads to zero divergence of the Einstein tensor $\nabla_{\mu}G^{\mu\nu} = 0$ (see \cite{Weinberg:1972kfs}).
 
 Some energy-momentum tensors inherited from special relativity have given rise to analytical solutions of the einstein equations, such as the TOV equation \cite{PhysRev.55.374} and the Reinser-Nordstrom solution \cite{https://doi.org/10.1002/andp.19163550905}. In a local inertial frame, the stress-energy tensor for perfect fluids and the Faraday tensor can be written as
 
@@ -89,18 +90,18 @@ F_{\mu \nu} =
 
 Where $\rho$ is the rest mass density, p is the pressure, $E_i$ is the ith component of the electric field, $B_j$ is the jth component of a magnetic field, and c is the speed of light in vacuum. Both have been relevant in theoretical applications of GR like idealized neutron stars or quark-gluon plasmas \cite{Nagle_2011}, and charged black holes, respectively \cite{PhysRevD.13.2713}.
 
-Due to their nonlinear and coupled character, analytical solutions to the Einstein equations are challenging to find. In particular, to study systems like CBCs, numerical simulations have been employed to study the entire binary evolution since the 2000s \cite{Shibata:1999hn,Shibata:1999wm,Shibata:2019wef} and approximate methods such as post-Newtonian expansions to study their inspiral phases(see Creighton et al. \cite{Creighton:2011zz}). 
+Due to their nonlinear and coupled character, analytical solutions to the equations \ref{EFE} are challenging to find. In particular, numerical simulations have been run to study the evolution of binary systems containing at least one black hole or neutron star since the 2000s \cite{Shibata:1999hn,Shibata:1999wm,Shibata:2019wef}.
 
-The process of solving equations\ref{EFE} to obtain the spacetime metric and solving the geodesic equations 
+The process of solving equations \ref{EFE} to obtain the spacetime metric and solving the geodesic equations 
 
 \begin{equation}\label{par-trans}
 u^{\delta} \nabla_{\delta } u^{\alpha } = 
 0 \rightarrow \frac{d^2 x^{\alpha}}{d\tau^2} = - \Gamma^{\alpha}_{\nu\mu} \frac{dx^{\nu}}{d\tau} \frac{dx^{\mu}}{d\tau},
 \end{equation}
 
-Is the relativistic analogous to what, in the Newtonian case, would be solving the Poisson equation\ref{poisson} to obtain the potential $\phi$ and using Newton's second law to obtain particle trajectories on the gravitational field. Where  $\nabla_{\delta}$ are the components of a unique covariant derivative operator acting on the particle's 4-velocity $u^{\alpha}$(see Wald\cite{Wald:1984rg}). 
+Is the relativistic analogous to what, in the Newtonian case, would be solving the Poisson equation \ref{poisson} to obtain the potential $\phi$ and using Newton's second law to obtain particle trajectories on the gravitational field. Where  $\nabla_{\delta}$ are the components of a unique covariant derivative operator acting on the particle's 4-velocity $u^{\alpha}$(see Wald \cite{Wald:1984rg}). 
 
-In addition, tidal interactions between particles induced by the curvature of spacetime can be measured by the geodesic deviation equation(see Hartle \cite{Hartle:2021pel}). The relativistic analogous of equation\ref{tidal0}, encodes the geometry of spacetime via the Riemann tensor components $R^{\alpha}_{\;\; \tau \mu \tau}$
+In addition, tidal interactions between particles induced by the curvature of spacetime can be measured by the geodesic deviation equation(see Hartle \cite{Hartle:2021pel}). The relativistic analogous of equation \ref{tidal0}, encodes the geometry of spacetime via the Riemann tensor components $R^{\alpha}_{\;\; \tau \mu \tau}$
 
 \begin{equation}\label{tidal1}
 \frac{d \xi^{\alpha}}{d\tau} = - R^{\alpha}_{\;\; \alpha \mu \beta} \cdot T^{\alpha} T^{\beta} \xi^{\mu}
@@ -113,8 +114,6 @@ Where $T^{\nu}$ are the 4-velocity components . Although this thesis focuses on 
 
 
 \subsection{Spherically symmetric stars and the TOV equation}\label{codeon}
-
-The EOS for supranuclear matter is currently not well constrained since nuclear physics experiments on earth can not reach such a high energy regime. On the other hand, observations of known pulsars and BNS merger events like GW170817 have the potential to be our best laboratory to improve existing constraints.
 
 General relativity provides a generalized version of equation  \ref{press.grad} that has been widely used to study the structure and dynamics of compact objects that produce strong gravitational fields. To date, GR predictions have passed all observational tests concerning observations of compact objects like neutron stars(NSs) and pulsars. 
 
@@ -288,9 +287,9 @@ Inserting equations \ref{A},\ref{A'/A} and \ref{B'/B}, in  $R_{\theta \theta}$ w
 - P' = \frac{G}{r^2} \frac{\left( M + 4\pi r^3 \frac{P}{c^2} \right)}{\left(  1 - \frac{2GM}{r c^2} \right)} \left( \frac{P}{c^2}+\rho \right)
 \end{equation}
 
-The equation \ref{TOV2} is called the Tolman-Oppenheimer-Volkoff equation(TOV). Notice how it reduces to the Newtonian equation \ref{press.grad} when taking the limits $c\rightarrow \infty$ and $GM/c^2 <<1$. The system of equations \ref{TOV2}, \ref{oreijf} must be completed by an EOS $P(\rho)$, and solved by using numerical methods.
+The equation \ref{TOV2} is called the Tolman-Oppenheimer-Volkoff equation(TOV) \cite{PhysRev.55.374}. Notice how it reduces to the Newtonian equation \ref{press.grad} when taking the limits $c\rightarrow \infty$ and $GM/c^2 <<1$. The system of equations \ref{TOV2}, \ref{oreijf} must be completed by an EOS $P(\rho)$, and solved by using numerical methods.
 
-The following figure shows NS properties for the EOSs present in the CoRe catalog for BNS waveforms \cite{Dietrich:2018phi}. One of the most important features of GR is the prediction of a maximum in every curve of the mass-radius relation(left panel). It is called the maximum TOV mass and serves as a reference for the amount of matter an EOS can support. Notice the almost EOSs-independent relation between the compactness parameter and the tidal deformability(see equation \ref{Tid}) of a static star(right panel). 
+The following figure shows some mass radius diagrams computed after solving numerically equation \ref{TOV2} for the EOSs present in the CoRe BNS catalog \cite{Dietrich:2018phi}. One of the most important features of GR is the prediction of a maximum in every curve of the mass-radius relation(left panel) called the maximum TOV mass. Given an EOS, the maximum TOV mass is a reference for the amount of matter a star can support. Notice the almost EOSs-independent relation between the compactness parameter and the tidal deformability(see equation \ref{Tid}) of a static star(right panel).
 
 \begin{figure}[hbt!]
 \begin{center}
@@ -303,7 +302,7 @@ The following figure shows NS properties for the EOSs present in the CoRe catalo
 
 \FloatBarrier
 
-Recent studies have investigated the existence of a threshold mass for realistic neutron stars produced by BNS mergers \cite{Kashyap_2022}. Such scenarios may produce either prompt collapse to a BH or a differentially rotating fluid that can delay the collapse for a few milliseconds while emitting gravitational waves and have been classified according to the ratio.
+Recent studies have investigated the existence of a threshold mass for realistic neutron star merger remnants \cite{Kashyap_2022}, according to the ratio
 
 \begin{equation}\label{delta}
 \delta=\frac{M_g}{M_{TOV}}
@@ -335,7 +334,7 @@ The following derivation is carried out to show the consequences of linearizing 
 
 Let us begin by expanding the metric $g$ to first order around the background Minkowski metric. 
 
-\begin{equation}\label{metric}
+\begin{equation}\label{metric1}
 g_{\mu \nu} =  \eta_{\mu \nu} + h_{\mu \nu}.
 \end{equation}
 
@@ -414,9 +413,7 @@ h_{\mu\nu} \rightarrow  h^{'}_{\mu\nu} = h_{\mu\nu} + \partial_{\mu} \Lambda_{\n
 \bar{h}_{\mu\nu} \rightarrow  \bar{h}^{'}_{\mu\nu} = \bar{h}_{\mu\nu} + \partial_{\mu} \Lambda_{\nu} + \partial_{\nu} \Lambda_{\mu} - \eta_{\mu\nu} \partial^{\delta} \Lambda_{\delta}
 \end{equation}
 
-Equations \ref{ondeoid} and \ref{kcome} represent the gauge freedom of general relativity coming from infinitesimal isometries of spacetime (see Wald \cite[chapter X]{Wald:1984rg}). 
-
-The redundancy caused by such freedom can be solved by imposing an additional condition. The following equation is called the de Donder gauge condition.
+Equations \ref{ondeoid} and \ref{kcome} represent the gauge freedom of general relativity coming from infinitesimal isometries of spacetime (see Wald \cite{Wald:1984rg}). The redundancy caused by such freedom can be solved by imposing an additional condition. The following equation is called the de Donder gauge condition.
 
 \begin{equation}
 g^{\mu\nu} \Gamma^{\lambda}_{\mu\nu} = 0
@@ -428,7 +425,7 @@ Which is used to simplify the equations \ref{hbar} and \ref{h}. Recalling the Ch
 \partial^{\mu} h_{\mu\nu} = \frac{1}{2} \partial_{\nu} h^{\delta}_{\delta}
 \end{equation}
 
-\textbf{Remark:} It can be shown that if a metric perturbation does not satisfy \ref{doine}, one can always perform the following transformation to find a $\tilde{h}_{\mu\nu}$ that does(See Weinberg \cite[chapter 10]{Weinberg:1972kfs}):
+\textbf{Remark:} It can be shown that if a metric perturbation does not satisfy \ref{doine}, one can always perform the following transformation to find a $\tilde{h}_{\mu\nu}$ that does (See Weinberg \cite[chapter 10]{Weinberg:1972kfs}):
 
 \begin{equation}
 \Box \Lambda_\nu = \partial^{\mu} h_{\mu\nu} - \frac{1}{2} \partial_{\nu} h^{\delta}_{\delta}
@@ -456,7 +453,7 @@ Finally, both equations \ref{waveeq} and \ref{dedonder1} must be solved simultan
 
 \subsection{GW polarizations: transverse traceless gauge}
 
-In contrast to Newtonian gravity, solutions to the vacuum equations of linearized gravity are already interesting enough to be studied. The simplest oscillatory "Ansatz" admitted by the d'Alembert operator $\Box$ has the form.   
+In contrast to Newtonian gravity, solutions to the vacuum field  equations of linearized gravity are already interesting enough to be studied. The simplest oscillatory "Ansatz" admitted by the d'Alembert operator $\Box$ has the form.   
 
 \begin{equation}\label{planew}
 h_{\mu\nu} = A_{\mu\nu} e^{i k_{\delta} \cdot x^{\delta}},

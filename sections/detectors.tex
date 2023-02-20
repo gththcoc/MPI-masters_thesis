@@ -1,8 +1,9 @@
+\newpage
 \section{Gravitational wave detectors}
 
-Since Michelson and Morley designed an interferometer(IFO) to test Aether's existence \cite{Michelson333}, such a device became widely used in several branches of physics where precise measurements were required. Applications of interferometry range from engineering and optics experiments to quantum physics with the Mach-Zender IFO and GW astronomy with the ground-based detectors GEO600, LIGO, Virgo, and KAGRA.
+Since Michelson and Morley designed an interferometer (IFO) to test Aether's existence \cite{Michelson333}, such a device became widely used in several branches of physics where precise measurements were required. Applications of interferometry range from engineering and optics experiments to quantum physics with the Mach-Zender IFO and GW astronomy with the ground-based detectors GEO600, LIGO, Virgo, and KAGRA.
 
-The idea behind current ground based GW detectors keeps being as simple as the original design by Michelson and Morley(MM). However, due to sensitivity requirements, many technological improvements have been implemented to mitigate noise sources like seismic noise, quantum shot noise, and thermal noise \cite{LIGOScientific:2013pcc}. The picture below is taken from \cite{Hild_2012} and summarizes the main contributors to the advanced LIGO noise floor in the kHz band, also called \textit{sensitivity curve}  
+The idea behind current ground based GW detectors keeps being as simple as the original design by Michelson and Morley (MM). However, due to sensitivity requirements, many technological improvements have been implemented to mitigate noise sources like seismic noise, quantum shot noise, and thermal noise \cite{LIGOScientific:2013pcc}. The picture below is taken from \cite{Hild_2012} and summarizes the main contributors to the advanced LIGO noise floor in the kHz band, also called \textit{sensitivity curve}  
 
 
 \begin{figure}[hbt!]
@@ -15,7 +16,7 @@ The idea behind current ground based GW detectors keeps being as simple as the o
 \end{figure}
 \FloatBarrier
 
-In simple terms, the MM interferometers are composed of: a very stable laser, a reflective mirror called beam splitter(BS), and two perpendicular arms with mirrors at their ends, called Fabry-Perrot cavities \cite{Saulson:1995zi}. The following figure taken from \cite{Hild_2012} shows the simplified schematics of an L-shaped IFO   
+In simple terms, the MM interferometers are composed of a very stable laser, a partially reflective mirror called beam splitter (BS), and two perpendicular arms with mirrors at their ends, called Fabry-Perrot cavities (see \cite{Saulson:1995zi}). The following figure taken from \cite{Hild_2012} shows the simplified schematics of an L-shaped IFO   
 
 
 \begin{figure}[hbt!]
@@ -29,7 +30,8 @@ In simple terms, the MM interferometers are composed of: a very stable laser, a 
 
 \FloatBarrier
 
-The laser passes through the BS and gets decomposed in 2 perpendicular beams after each roundtrip recombining at the IFO output where a photodiode is located. The IFO is sensitive to proper length changes in the fabry-perrot cavities caused by a GW interacting with its test masses(end mirrors). Consequently, the photodiode measures power variations at the IFO output caused by changes in the beam roundtrip time that translate into phase differences when both perpendicular beams recombine.
+The laser passes through the BS and decomposes in 2 perpendicular beams, which recombine at the IFO output after a roundtrip, where a photodiode is located. The IFO is sensitive to proper length changes in the fabry-perrot cavities caused by a GW interacting with its test masses (end mirrors). Consequently, the photodiode measures power variations at the IFO output caused by changes in the beam roundtrip time that translate into phase differences when both perpendicular beams recombine.
+
 
 To see that, consider the arm pointing in the horizontal direction in figure \ref{IFO} and a gravitational wave with only $h_+$  polarization traveling in the z-direction perpendicular to the detector plane. The line element \ref{GWlineelement} in the TT gauge is given by
 
@@ -72,7 +74,7 @@ Similarly, for the arm in the y-direction, we get
 t_2 - t_0 = \frac{2L_y}{c} - \frac{1}{2} \int_{t_0}^{t_2} dt' h_+(t')
 \end{equation}
 
-One can see that the round trip time of the beam $\frac{2L_x}{c}$ is modified by $\delta \tau_{rt} = \frac{1}{2} \int_{t_0}^{t_2} dt' h_+(t')$. The round trip time variations caused by the gravitational wave can be further shown to affect the phases of the beams and then make possible its detection from power fluctuations at the photodiode readout \cite{Saulson:1995zi}. The round trip phase changes caused by the interaction of the GW with the IFO arms can be computed using 
+One can see that the round trip time of the beam $\frac{2L_x}{c}$ is modified by $\delta \tau_{rt} = \frac{1}{2} \int_{t_0}^{t_2} dt' h_+(t')$. The round trip time variations caused by the gravitational waves can be further shown to affect the phases of the beams and then make possible its detection from power fluctuations at the photodiode readout \cite{Saulson:1995zi}. The round trip phase changes caused by the interaction of the GW with the IFO arms can be computed using 
 
 \begin{equation}
 x-direction \rightarrow \delta \phi_{rt} = k\cdot c \cdot \delta \tau_{rt}

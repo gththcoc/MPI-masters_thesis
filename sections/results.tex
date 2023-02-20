@@ -7,12 +7,12 @@ The following chapter summarizes the results obtained by overlapping simple clos
 
 \item In the case of detectable postmerger sources, examine how well the model recovers waveform features like its main frequency and duration.
 
-\item Check whether modeling the postmerger's first amplitude minimum (see figure \ref{}) with zero crossing amplitude envelopes can improve the SNR and parameter recovery for some waveforms in the catalog.
+\item Check whether modeling the postmerger's first amplitude minimum (see figure \ref{fig:9}) with zero crossing amplitude envelopes can improve the SNR and parameter recovery for some waveforms in the catalog.
 
 \end{enumerate}
 
 
-To complete this task, the code described in section \ref{} will be generalized for j=220 waveforms $h^j$ and templates with n-free parameters $q$. Since one can map a unique template $q$ to each point in the parameter space represented by the n-tuple $(a_1,...,a_n)$, template models will from now on be interpreted in geometrical terms as an n-dimensional object called \textit{template bank}. 
+To complete this task, the code described in figure \ref{fig:8} will be generalized for j=220 waveforms $h^j$ and templates with n-free parameters $q$. Since one can map a unique template $q$ to each point in the parameter space represented by the n-tuple $(a_1,...,a_n)$, template models will from now on be interpreted in geometrical terms as an n-dimensional object called \textit{template bank}. 
 
 \begin{equation}\label{ndim}
 q_{_{a_1,...,a_n}}(t)
@@ -28,7 +28,7 @@ Such an n-dimensional template bank will be used to compute its inner products \
 Of which the global maximum and its location in parameter space $a_{1_{best}},...,a_{n_{best}}$ will be extracted 
 
 \begin{equation}
-\rho_{max} = \rho_{_{a_{1_{best}},...,a_{n_{best}},\phi_{opt},\tau_{max}}}
+\rho_{rec}:=\rho_{max} = \rho_{_{a_{1_{best}},...,a_{n_{best}},\phi_{opt},\tau_{max}}}
 \end{equation}
 
 Where $\phi_{opt},\tau_{max}$ are the optimal phase and timeshift extracted to reconstruct the signal in the time domain as shown in figure \ref{fig:7}. 
@@ -43,7 +43,7 @@ During the development of this thesis, a Python code that provides an interface 
 \begin{center}
 \includegraphics[width=\textwidth, angle=0]{images/cat_search.pdf}
 \captionsetup{width=0.8\textwidth}
-\caption[Flowchart of matched filter code for NR waveform catalogs]{Flowchart of matched filter code for NR waveform catalogs. This diagram contains the schematics of the matched filtering code for NR waveform catalogs presented in section \ref{NR}. It is divided into four stages, of which only stage 3 employs equation \ref{pul}. Stages 1 and 2 depict the waveform extraction done through python packages like WATPY and LAL, template bank generation and conditioning of detector sensitivity curves, and stage 4 for results and metadata storage.}
+\caption[Flowchart of matched filtering code for NR waveform catalogs]{Flowchart of matched filtering code for NR waveform catalogs. This diagram contains the schematics of the matched filtering code for NR waveform catalogs presented in section \ref{NR}. It is divided into four stages, of which only stage 3 employs equation \ref{pul}. Stages 1 and 2 depict the waveform extraction done through python packages like WATPY and LAL, template bank generation and conditioning of detector sensitivity curves, and stage 4 for results and metadata storage.}
 \label{fig:19}
 \end{center}
 \end{sidewaysfigure}
@@ -78,10 +78,7 @@ q_{_{_{A, f, \phi_0, t_{0}, d}}}(t) =A \cdot sin(2\pi f t + \phi_0) \cdot \Pi_{t
    \end{cases}
 \end{equation}
 
-Where $t_0$ is wave starting time, $t_0+d$ and $f$ its duration and frequency, and $A$ and $\phi$ its amplitude and phase.
-
-
-As seen in section \ref{}, matched filtering algorithm allows us to find the optimal values for amplitude, phase, and timeshift $A_{opt}$, $\phi_{opt}$ and $t_{0_{opt}}$, such that the template model \ref{eq:19}, can be written as
+Where $t_0$ is wave starting time, $t_0+d$ and $f$ its duration and frequency, and $A$ and $\phi$ its amplitude and phase. As seen in figure \ref{fig:7}, matched filtering algorithm allows us to find the optimal values for amplitude, phase, and timeshift $A_{opt}$, $\phi_{opt}$ and $t_{0_{opt}}$, such that the template model \ref{eq:19}, can be written as
 
 \begin{equation}\label{eq:20}
 q_{_{_{f,d}}}(t) =
@@ -96,7 +93,7 @@ q_{_{_{f,d}}}(t) =
 The recovered SNR equation \ref{pul} can be written in terms of the 2-dimensional bank of templates \ref{eq:20}
 
 \begin{equation}\label{eq:21}
-\rho_{rec} := \rho_{_{_{f,d}}} = \frac{\langle h, q_{_{_{f,d}}}\cdot e^{i(2\pi \tau+\phi)}\rangle \bigg\rvert_{\phi =\phi_{opt},\tau =\tau_{max}}}{\sqrt{\langle  q_{_{_{f,d}}},q_{_{_{f,d}}} \rangle}}
+\rho_{_{_{f,d}}} = \frac{\langle h, q_{_{_{f,d}}}\cdot e^{i(2\pi \tau+\phi)}\rangle \bigg\rvert_{\phi =\phi_{opt},\tau =\tau_{max}}}{\sqrt{\langle  q_{_{_{f,d}}},q_{_{_{f,d}}} \rangle}}
 \end{equation}
 
 
@@ -104,10 +101,9 @@ For the sake of simplicity, in this thesis, template banks will be constructed i
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[scale=0.8]{images/Data_analysis/results/param_space.pdf}
+\includegraphics[scale=0.6]{images/Data_analysis/results/param_space.pdf}
 \captionsetup{width=0.8\textwidth}
-\caption{The parameter space of a monochromatic wave}
-\caption*{This figure shows how the parameter space of a monochromatic wave. A mask is applied to discard combinations $(f,d)$ that generate templates with less than one wavelength. The red circle shows the template used in figure \ref{}}
+\caption[The parameter space of a finite monochromatic wave]{The parameter space of a finite monochromatic wave. This figure shows the parameter space of equation \ref{eq:19}. A mask is applied to discard combinations $(f,d)$ that generate templates with less than one wavelength (orange). The red circle shows the parameters used in figure \ref{fig:7}.}
 \end{figure}
 \FloatBarrier
 
@@ -116,7 +112,7 @@ For the sake of simplicity, in this thesis, template banks will be constructed i
 Subsequently, the 2D recovered SNR \ref{eq:21} , normalized by the optimal SNR \ref{sopt}, will be computed at each point of the grid and will be represented as the third dimension using colormaps. 
 
 
-The following figure shows how a \textit{Non-spinning equal mass BNS systems} may generate a signal with slow amplitude and frequency variations. Overlapping such waveform against the template model \ref{} produces a colormap where two main regions show SNR peaks: the first between 1.5-2 kHz below 5 ms and the second between 2-2.5 kHz with a peak at 15ms. 
+The following figure shows how a \textit{Non-spinning equal mass BNS systems} may generate a signal with slow amplitude and frequency variations. Overlapping such waveform against the template model \ref{eq:19} produces a colormap where two main regions show SNR peaks: the first between 1.5-2 kHz below 5 ms and the second between 2-2.5 kHz with a peak at 15ms. 
 
 \begin{figure}[!htbp]
 \begin{center}
@@ -131,8 +127,8 @@ The following figure shows how a \textit{Non-spinning equal mass BNS systems} ma
 \includegraphics[scale=0.45]{images/Data_analysis/results/2D_grid_2.pdf}
 \end{minipage}
 \captionsetup{width=0.8\textwidth}
-\caption{Equal mass BNS waveform and its best monochromatic match}
-\caption*{This plot shows the recovered SNR \ref{} for the waveform BAM:0035:R01 of the CoRe BNS catalog \cite{}(see figure\ref{} to read the BNS poperties) and the template model \ref{}. The best matching parameters are $f=Hz$ and $d=ms$.}
+\caption[Equal mass BNS system's postmerger waveform and its best monochromatic match]{Equal mass BNS postmerger waveform and its best monochromatic match. This plot shows the recovered SNR \ref{eq:21} for the waveform BAM:0035:R01 of the CoRe BNS catalog \cite{Dietrich:2018phi} and the template model \ref{eq:19}. The best matching parameters are $f=2208.86$ Hz and $d=15.09$ ms.}
+\label{eqmass}
 \end{center}
 \end{figure}
 
@@ -140,7 +136,7 @@ The following figure shows how a \textit{Non-spinning equal mass BNS systems} ma
 
 %In this example, the postmerger tail has a high amplitude and a slowly varying frequency which helps the monochromatic model \ref{} recover a long duration without losing SNR due to misalignments with the waveform. 
 
-Below, a few other example waveforms will be overlapped against the template model \ref{} to depict how the matched filtering algorithm can, for other more complex BNS postmerger signals, recover more SNR with short monochromatic segments instead.
+Below, a few other example waveforms will be overlapped against the template model \ref{eq:19} to depict how the matched filtering algorithm can, for other more complex BNS postmerger signals, recover more SNR with short monochromatic segments instead.
  
 
 \textit{High mass ratio BNS systems}, i.e. $q=m_1/m_2>1.6$ may show also 2 regions with excess SNR recovery. However, the low frequency-low duration region of parameter space dominates.
@@ -158,8 +154,7 @@ Below, a few other example waveforms will be overlapped against the template mod
 \includegraphics[scale=0.45]{images/Data_analysis/results/2D_grid_4.pdf}
 \end{minipage}
 \captionsetup{width=0.8\textwidth}
-\caption{High mass ratio BNS waveform and its best monochromatic match}
-\caption*{This plot shows the recovered SNR \ref{} for the waveform BAM:0021:R01 of the CoRe BNS catalog \cite{}(see figure\ref{} to read the BNS poperties) and the template model \ref{}. The best matching parameters are $f=Hz$ and $d=ms$.}
+\caption[High mass ratio BNS system's postmerger waveform and its best monochromatic match]{High mass ratio BNS postmerger waveform and its best monochromatic match. This plot shows the recovered SNR \ref{eq:21} for the waveform BAM:0021:R01 of the CoRe BNS catalog \cite{Dietrich:2018phi} and the template model \ref{eq:19}. The best matching parameters are $f=1145.57$ Hz and $d=1.14$ ms.}
 \end{center}
 \end{figure}
 
@@ -183,8 +178,7 @@ Below, a few other example waveforms will be overlapped against the template mod
 \includegraphics[scale=0.45]{images/Data_analysis/results/2D_grid_6.pdf}
 \end{minipage}
 \captionsetup{width=0.8\textwidth}
-\caption{Spinning BNS waveform and its best monochromatic match}
-\caption*{This plot shows the recovered SNR \ref{} for the waveform BAM:0106:R01 of the CoRe BNS catalog \cite{}(see figure\ref{} to read the BNS poperties) and the template model \ref{}. The best matching parameters are $f=Hz$ and $d=ms$.}
+\caption[Spinning BNS system's postmerger waveform and its best monochromatic match]{Spinning BNS postmerger waveform and its best monochromatic match. This plot shows the recovered SNR \ref{eq:21} for the waveform BAM:0106:R01 of the CoRe BNS catalog \cite{Dietrich:2018phi} and the template model \ref{eq:19}. The best matching parameters are $f=3082.28$ Hz and $d=10.32$ ms.}
 \end{center}
 \end{figure}
 
@@ -207,8 +201,7 @@ Below, a few other example waveforms will be overlapped against the template mod
 \includegraphics[scale=0.45]{images/Data_analysis/results/2D_grid_8.pdf}
 \end{minipage}
 \captionsetup{width=0.8\textwidth}
-\caption{Spinning BNS waveform and its best monochromatic match}
-\caption*{This plot shows the recovered SNR \ref{} for the waveform BAM:0001:R01 of the CoRe BNS catalog \cite{}(see figure\ref{} to read the BNS poperties) and the template model \ref{}. The best matching parameters are $f=Hz$ and $d=ms$.}
+\caption[Heavy BNS system's postmerger waveform and its best monochromatic match]{Heavy BNS system's postmerger waveform and its best monochromatic match. This plot shows the recovered SNR \ref{eq:21} for the waveform BAM:0001:R01 of the CoRe BNS catalog \cite{Dietrich:2018phi} and the template model \ref{eq:19}. The best matching parameters are $f=2930$ Hz and $d=0.40$ ms.}
 \end{center}
 \end{figure}
 
@@ -232,8 +225,7 @@ Below, a few other example waveforms will be overlapped against the template mod
 \includegraphics[scale=0.45]{images/Data_analysis/results/2D_grid_10.pdf}
 \end{minipage}
 \captionsetup{width=0.8\textwidth}
-\caption{Spinning BNS waveform and its best monochromatic match}
-\caption*{This plot shows the recovered SNR \ref{} for the waveform BAM:0115:R01 of the CoRe BNS catalog \cite{}(see figure\ref{} to read the BNS poperties) and the template model \ref{}. The best matching parameters are $f=Hz$ and $d=ms$.}
+\caption[Eccentric BNS system's postmerger waveform and its best monochromatic match]{Eccentric BNS system's postmerger waveform and its best monochromatic match. This plot shows the recovered SNR \ref{eq:21} for the waveform BAM:0115:R01 of the CoRe BNS catalog \cite{Dietrich:2018phi} and the template model \ref{eq:19}. The best matching parameters are $f=1715.19$ Hz and $d=1.32$ ms.}
 \end{center}
 \end{figure}
 
@@ -255,8 +247,7 @@ Below, a few other example waveforms will be overlapped against the template mod
 \includegraphics[scale=0.45]{images/Data_analysis/results/2D_grid_12.pdf}
 \end{minipage}
 \captionsetup{width=0.8\textwidth}
-\caption{Spinning BNS waveform and its best monochromatic match}
-\caption*{This plot shows the recovered SNR \ref{} for the waveform THC:0019:R01 of the CoRe BNS catalog \cite{}(see figure\ref{} to read the BNS poperties) and the template model \ref{}. The best matching parameters are $f=Hz$ and $d=ms$.}
+\caption[The impacts of microphyscis in the postmerger's best monochromatic match]{The impacts of microphyscis in the postmerger's best monochromatic match. This plot shows the recovered SNR \ref{eq:21} for the waveform THC:0019:R01 of the CoRe BNS catalog \cite{Dietrich:2018phi} and the template model \ref{eq:19}. The best matching parameters are $f=2740.61$ Hz and $d=10.67$ ms.}
 \end{center}
 \end{figure}
 
@@ -264,14 +255,14 @@ Below, a few other example waveforms will be overlapped against the template mod
 
 
 
-Since eccentric, high mass ratio, or spinning BNS systems may generate waveforms that are a challenging task for the monochromatic model \ref{}. We can avoid searching in the low frequency region with a different question that slightly modifies the target of the search:
+Since eccentric, high mass ratio, or spinning BNS systems may generate waveforms that are a challenging task for the monochromatic model \ref{eq:19}. We can avoid searching in the low frequency region with a different question that slightly modifies the target of the search:
 
 Original question$\rightarrow$" Which parameters f and d would produce the monochromatic wave that recovers most of the signal-to-noise ratio?"
 
 New question$\rightarrow$" Which parameters f and d would produce the monochromatic wave that recovers most of the signal-to-noise ratio that contains more than n oscillations?"
 
 
-Modifying the question in such a way would increase the number of rejected points lying on the orange region(see figure\ref{fig:11}) and get rid of the loud low-frequency structure dominating the colormaps \ref{}, which is related to oscillations right after $t_{merg}$.
+Modifying the question in such a way would increase the number of rejected points lying on the orange region(see figure\ref{fig:11}) and get rid of the loud low-frequency structure dominating the colormaps, which is related to oscillations right after $t_{merg}$.
 
 
 \begin{itemize}[leftmargin=*]
@@ -293,7 +284,7 @@ Modifying the question in such a way would increase the number of rejected point
 \end{minipage}
 \captionsetup{width=0.8\textwidth}
 \caption{Spinning BNS waveform and its best monochromatic match}
-\caption*{This plot shows the recovered SNR \ref{} for the waveform THC:0019:R01 of the CoRe BNS catalog \cite{}(see figure\ref{} to read the BNS poperties) and the template model \ref{}. The best matching parameters are $f=Hz$ and $d=ms$.}
+\caption*{This plot shows the recovered SNR \ref{eq:21} for the waveform THC:0019:R01 of the CoRe BNS catalog \cite{Dietrich:2018phi} and the template model \ref{eq:19}. The best matching parameters are $f=2360.76$ Hz and $d=7.11$ ms.}
 \end{center}
 \end{figure}
 
@@ -316,7 +307,7 @@ Modifying the question in such a way would increase the number of rejected point
 \end{minipage}
 \captionsetup{width=0.8\textwidth}
 \caption{Spinning BNS waveform and its best monochromatic match}
-\caption*{This plot shows the recovered SNR \ref{} for the waveform THC:0019:R01 of the CoRe BNS catalog \cite{}(see figure\ref{} to read the BNS poperties) and the template model \ref{}. The best matching parameters are $f=Hz$ and $d=ms$.}
+\caption*{This plot shows the recovered SNR \ref{eq:21} for the waveform THC:0019:R01 of the CoRe BNS catalog \cite{Dietrich:2018phi} and the template model \ref{eq:19}. The best matching parameters are $f=3158.23$ Hz and $d=10.68$ ms.}
 \end{center}
 \end{figure}
 
@@ -330,9 +321,9 @@ Even though imposing such constraints on parameter space might help to recover t
 \newpage
 \section{How well can the monochromatic model recover signals in the catalog?}
 
-The fact that one can find waveforms in the catalogs for which the finite monochormatic model can reproduce its duration and main frequency while at the same time recovering more than 75\%  of the optimal SNR(see figure \ref{BAM:0035}) leads us to ask wheter such a simple model can produce similar results across the whole waveform catalog. 
+The fact that one can find waveforms in the catalogs for which the finite monochormatic model can reproduce its duration and main frequency while at the same time recovering more than 75\%  of the optimal SNR (see figure \ref{eqmass}) leads us to ask wheter such a simple model can produce similar results across the whole waveform catalog. 
  
-This section will use the infrastructure described in figure \ref{} to analize iteratively the whole dataset of 220 wavefoms(see section \ref{}) using the finite monochromatic template model \ref{}. In that case, equation \ref{} for computing the maximum recovered SNR takes the form 
+This section will use the infrastructure described in figure \ref{fig:19} to analize iteratively the whole dataset of 220 wavefoms(see section \ref{NR}) using the finite monochromatic template model \ref{eq:19}. In that case, equation \ref{eq:21} for computing the maximum recovered SNR takes the form 
 
 
 \begin{equation}\label{eq:21}
@@ -341,7 +332,7 @@ This section will use the infrastructure described in figure \ref{} to analize i
 
 
 
-Let $f_{best}$ and $d_{best}$ be the parameters of the monochormatic templates that recovers the maximum SNR $\rho_{_{_{rec}}}$ for a given waveform $h^j$ in the catalog. Several other quatities will be used to characterize the waveform dataset and its best matching monochormatic template in terms of signal properties like $d_{wei}$, $f_{wei}$, and physical observables like $M=m_1+m_2$, $q=m_1/m_2$ and $\chi_{_{eff}}$\ref{}.
+Let $f_{best}$ and $d_{best}$ be the parameters of the monochormatic templates that recovers the maximum SNR $\rho_{_{_{rec}}}$ for a given waveform $h^j$ in the catalog. Several other quatities will be used to characterize the waveform dataset and its best matching monochormatic template in terms of signal properties like $d_{wei}$, $f_{wei}$, and physical observables like $M=m_1+m_2$, $q=m_1/m_2$ and $\chi_{_{eff}}$\ref{chieff}.
 
 
 Moreover, the following 2D plane will be used to combine the optimal SNR $\rho_{_{_{opt}}}$ and the ratio $\alpha=\rho_{_{_{rec}}}/\rho_{_{_{opt}}}$ to characterize the whole waveform dataset according to the following criteria:
@@ -360,7 +351,7 @@ Moreover, the following 2D plane will be used to combine the optimal SNR $\rho_{
 \includegraphics[width=0.75\textwidth, angle=0]{images/Data_analysis/results/schematics.pdf}
 \captionsetup{width=0.8\textwidth}
 \caption{Detectablity and features of a waveform catalog}
-\caption*{This figure depicts the way the dataset will be divided and characterized in terms of optimal SNR \ref{}, and }
+\caption*{This figure depicts the way the dataset will be divided and characterized in terms of optimal SNR \ref{sopt}, and the SNR ratio $alpha=\rho_{rec}/\rho_{opt}$.}
 \label{regions}
 \end{center} 
 \end{figure}
@@ -378,7 +369,7 @@ Upper right: possibly detectable waveforms at 100MPc that require simple modelin
 Lower right: non-detectable waveforms at 100MPc that require simple modeling.
 \end{itemize}
 
-Furthermore, such color coding will be extended to histograms of quantities like $d_{wei}$, $f_{wei}$, $\delta=M/M_{TOV}$, $q=m_1/m_2$, and  $\chi_{_{eff}}$ to identify whether there's a waveform clustering in the corners of diagram \ref{}, or rather the dataset is distributed uniformly in the $\rho_{_{opt}}$-$\alpha$ plane.
+Furthermore, such color coding will be extended to histograms of quantities like $d_{wei}$, $f_{wei}$, $\delta=M/M_{TOV}$, $q=m_1/m_2$, and  $\chi_{_{eff}}$ to identify whether there's a waveform clustering in the corners of diagram \ref{regions}, or rather the dataset is distributed uniformly in the $\rho_{_{opt}}$-$\alpha$ plane.
 
 
 Let us begin by representing the matched filtering results of all waveforms in the $\rho_{_{opt}}$-$\alpha$ plane. The lower bound is drawn at $\alpha=0.65$ and the upper bound at $\alpha=0.80$
@@ -394,19 +385,6 @@ Let us begin by representing the matched filtering results of all waveforms in t
 
 \FloatBarrier
 
-
-The four corners such a figure can be read according to the schematics of figure \ref{} as follows:
-
-\begin{itemize}
-\item Upper left: signals that could be detected at 100 MPc, but the monochromatic model leaves a considerable margin of improvement.
-\item Lower left: signals that would not be detected at 100 MPc, nor the monochromatic, represent a good model for them.
-\item 
-Upper right: possibly detectable waveforms at 100MPc that require simple modeling.
-\item 
-Lower right: non-detectable waveforms at 100MPc that require simple modeling.
-\end{itemize}
-
-\newpage
 
 In what follows, histograms will be used to count where "red" and "green" crosses lie in other dimensions. First, consider histograms for the amplitude weighted frequency and duration.
 
@@ -432,7 +410,7 @@ In what follows, histograms will be used to count where "red" and "green" crosse
 \FloatBarrier
 
 
-Notice how transitioning from the whole dataset(left) to only above threshold waveforms(right) does two different things: It significantly reduces the tall green bar in figure \ref{}  and its neighboring bars. In addition, in figure \ref{}, we see how most green bars disappear around the 3000Hz value in the weighted frequency histogram. Combining both plots, we can tell that the lower green region in figure \ref{} contains many short waveforms with high average frequency.
+Notice how transitioning from the whole dataset(left) to only above threshold waveforms(right) does two different things: It significantly reduces the tall green bar in figure \ref{adhist}  and its neighboring bars. In addition, in figure \ref{afhist}, we see how most green bars disappear around the 3000Hz value in the weighted frequency histogram. Combining both plots, we can tell that the lower green region in figure \ref{regions} contains many short waveforms with high average frequency.
 
 Moreover, the red samples tell us how the monochromatic template model struggles to get more than 65\% of the optimal SNR for waveforms longer than 30 milliseconds. 
 
@@ -490,12 +468,12 @@ Counting the waveforms lying in the region where $\delta>1.6$, one can see that 
 \end{center}
 \end{figure}
 
-The waveform dataset is dominated by equal mass waveforms, so by looking at the few waveform samples with high mass ratio $q=m_1/m_2>1.6$, one can see that the green bars survive the threshold cut, which means they lie in the upper right region of plot \ref{}, making them good candidates for detection.
+The waveform dataset is dominated by equal mass waveforms, so by looking at the few waveform samples with high mass ratio $q=m_1/m_2>1.6$, one can see that the green bars survive the threshold cut, which means they lie in the upper right region of plot \ref{aqhist}, making them good candidates for detection.
  
 
 \newpage
 
-Finally, spinning BNS systems, i.e., $\chi_{eff}>0.2$ (see equation \ref{chieff}), are also a small subset in this catalog, as many waveforms come from non-spinning systems. Nevertheless, one can also see that the green bars survive the threshold cut, which means they lie in the upper right region of plot \ref{}, making them good candidates for detection.
+Finally, spinning BNS systems, i.e., $\chi_{eff}>0.2$ (see equation \ref{chieff}), are also a small subset in this catalog, as many waveforms come from non-spinning systems. Nevertheless, one can also see that the green bars survive the threshold cut, which means they lie in the upper right region of plot \ref{achihist}, making them good candidates for detection.
 
 \begin{figure}[hbt!]
 \begin{center}
@@ -518,25 +496,29 @@ Overall the finite monochromatic model with constant amplitude can recover betwe
 \begin{tabular}{cc}
 \includegraphics[width=0.6\textwidth, angle=0]{images/Data_analysis/results/alpha_sum0.pdf}
 \end{tabular}
+\captionsetup{width=0.8\textwidth}
+\caption[SNR recovery using the monochromatic model]
+{This figure summarizes the search findings over the BNS waveform database according to \ref{regions}. The plot on the left uses different markers and colors to show the best waveform candidates, and the plot on the right the weaknesses of the monochromatic template model \ref{eq:20}.}
+\label{1}
 \end{center}
-\caption{$\alpha - \rho_{opt}$ and $\beta - \alpha$  planes}
-This figure summarizes the search findings over the BNS waveform database according to \ref{regions}. The plot on the left uses different markers and colors to show the best waveform candidates, and the plot on the right the weaknesses of the monochromatic template model \ref{eq:20}.
 \end{figure}
 \FloatBarrier
 
 \newpage
 Notice how the short waveforms generated by heavy BNS systems lie below the optimal SNR threshold but can be recovered well using the monochromatic model.
 
-In addition, even though waveforms generated by highly eccentric and high mass ratio BNS systems look like promissing candidates to be modeled using the monochormatic model \ref{}, the following two plots show that such a model does not recover accurately the postmerger's duration or main frequency.
+In addition, even though waveforms generated by highly eccentric and high mass ratio BNS systems look like promissing candidates to be modeled using the monochromatic model \ref{eq:19}, the following two plots show that such a model does not recover accurately the postmerger's duration or main frequency.
 
 \begin{figure}[hbt!]
 \begin{center}
 \begin{tabular}{cc}
 \includegraphics[width=0.6\textwidth, angle=0]{images/Data_analysis/results/alpha_sum1.pdf}
 \end{tabular}
+\captionsetup{width=0.8\textwidth}
+\caption[Duration estimation using the monochromatic model]
+{Duration estimation using the monochromatic model. This figure summarizes the search findings over the BNS waveform database according to \ref{regions}. The plot on the left uses different markers and colors to show the best waveform candidates, and the plot on the right the weaknesses of the monochromatic template model \ref{eq:19}.}
+\label{2}
 \end{center}
-\caption{$\alpha - \rho_{opt}$ and $\beta - \alpha$  planes}
-This figure summarizes the search findings over the BNS waveform database according to \ref{regions}. The plot on the left uses different markers and colors to show the best waveform candidates, and the plot on the right the weaknesses of the monochromatic template model \ref{eq:20}.
 \end{figure}
 
 \FloatBarrier
@@ -546,15 +528,16 @@ This figure summarizes the search findings over the BNS waveform database accord
 \begin{tabular}{cc}
 \includegraphics[width=0.6\textwidth, angle=0]{images/Data_analysis/results/alpha_sum2.pdf}
 \end{tabular}
+\captionsetup{width=0.8\textwidth}
+\caption[Frequency estimation using the monochromatic model]
+{Frequency estimation using the monochromatic model. This figure summarizes the search findings over the BNS waveform database according to \ref{regions}. The plot on the left uses different markers and colors to show the best waveform candidates, and the plot on the right the weaknesses of the monochromatic template model \ref{eq:19}.}
+\label{3}
 \end{center}
-\caption{$\alpha - \rho_{opt}$ and $\beta - \alpha$  planes}
-This figure summarizes the search findings over the BNS waveform database according to \ref{regions}. The plot on the left uses different markers and colors to show the best waveform candidates, and the plot on the right the weaknesses of the monochromatic template model \ref{eq:20}.
 \end{figure}
 
 \FloatBarrier
 
-Finally, by looking at figures \ref{} and \ref{}, where brown dots represent the equal mass non-spinning binaries, one can see that the monochromatic model \ref{} can recover 70-80% of the optimal 
-SNR while reproducing the postmerger's duration and frequency more accurately than in the other cases.
+Finally, by looking at figures \ref{2} and \ref{3}, where brown dots represent the equal mass non-spinning binaries, one can see that the monochromatic model \ref{eq:20} can recover 70-80\% of the optimal SNR \ref{sopt} while reproducing the postmerger's duration and frequency more accurately than in the other cases.
 
 
 
@@ -779,7 +762,7 @@ g(t) = \cdot \begin{cases}
 To avoid the model with amplitude evolution \ref{a-evol} losing a lot of SNR due to misalignments, we first make an intermediate step to find the best frequency and phase of a constant amplitude sin while fixing the length to the length of the waveform. That represents a computationally inexpensive task as it can be formulated as a one-dimensional search.
 
 
-One may explore all types of waveforms shown in figure \ref{fig:10} by examining what their SNR curves as a timeshift function look like and paying special attention to how close the peaks of each curve compare to the waveform itself.
+One may explore all types of waveforms shown in figure \ref{fig:101} by examining what their SNR curves as a timeshift function look like and paying special attention to how close the peaks of each curve compare to the waveform itself.
 
 \begin{figure}[hbt!]
 \begin{center}

@@ -5,10 +5,10 @@ The following section reviews key concepts of Newton’s theory of gravitation t
 
 \section{Newtonian gravity}
 
-It is surprising how well Newtonian gravity reproduces the effects of systems in the presence of weak gravitational fields. For centuries astronomers could make predictions using Newton's theory and confirm its versatility in systems such as main sequence stars, galaxies, the Earth-Moon system, and planets of the solar system (not without problems). For this reason, it is taken as a reference for more modern theories of gravity, which by convention are asked to reproduce its effects in the slow motion approximation,i.e., $\frac{||\vec{v}||}{c} << 1$ and weak field limit $\frac{GM}{c^2 R} <<1$. It is important to emphasize that it is an incomplete theory. Although it works well in the examples mentioned, it cannot reproduce phenomena such as gravitational lensing, gravitational redshift, and gravitational waves.
+It is surprising how well Newtonian gravity reproduces the effects of systems in the presence of weak gravitational fields. For centuries astronomers could make predictions using Newton's theory and confirm its versatility in systems such as main sequence stars, galaxies, the Earth-Moon system, and planets of the solar system (not without problems). For this reason, it is taken as a reference for more modern theories of gravity, which by convention are asked to reproduce its effects in the slow motion approximation,i.e., $\frac{||\vec{v}||}{c} << 1$ and weak field limit $\frac{GM}{c^2 R} <<1$. It is important to emphasize that Newtonian gravity is an incomplete theory. Although it works well in the examples mentioned, it cannot reproduce phenomena such as gravitational lensing, gravitational redshift, and gravitational waves.
 
 
-The following sections will present the fundamentals of newton's theory of gravitation to speak of generalized mass distributions and their gravitational fields motivated by the descriptions made in books by Shapiro\cite{Shapiro:1983du} and Poisson \cite{poisson_will_2014}.
+The following sections will present the fundamentals of newton's theory of gravitation to speak of generalized mass distributions and their gravitational fields motivated by the descriptions made by Shapiro \cite{Shapiro:1983du} and Poisson \cite{poisson_will_2014}.
 
 Let us begin by introducing the field equations of Newtonian gravity. Although Newton's work in gravitation is better known by the inverse square law, the description of Newtonian gravity as a field theory via Poisson's equation is more modern. It allows us to see its simplicity and establish its differences from Einstein's field equations. Poisson's equation for gravitation and its solution in terms of green's functions can be written down as 
 
@@ -38,7 +38,7 @@ m(t, \vec{x}) = \frac{1}{4\pi G}\int_{\partial V}  \vec{g}\cdot \hat{n}  \;\; d^
 Where $\hat{n}$ represents the unit normal vector field to the surface $\partial V$. Solutions to equation \ref{phi}, together with Newton's second law, and an equation of state, allow us to compute interesting physical observables like the orbits of bodies in the presence of the field $\phi$, the internal structure of self-gravitating objects and their binding energy.
 
 
-In general, solutions to equation \ref{poisson} can be computed using analytical methods as in electromagnetism(see \cite{Jackson:1998nia}), numerical methods, or the multipole expansion (see for example \cite{Thorne:1980ru}). The latter method is a powerful tool to perform approximate analytical calculations on bodies with complicated geometries and is described in detail in the following subsection. It has been widely used in experiments on the solar system and to measure earth's surface potential\cite{GOCE, GRACE}. 
+In general, solutions to equation \ref{poisson} can be computed using analytical methods as in electromagnetism(see \cite{Jackson:1998nia}), numerical methods, or the multipole expansion (see for example \cite{Thorne:1980ru}). The latter method is a powerful tool to perform approximate analytical calculations on bodies with complicated geometries and is described in detail in the following subsection. It has been widely used in experiments on the solar system and to measure earth's surface potential \cite{GOCE, GRACE}. 
 
 
 
@@ -88,7 +88,7 @@ $$ \frac{1}{|\vec{x}-\vec{x'}|} \rightarrow \frac{1}{(\delta_{ab} (x- x')^a (x- 
 \end{multline}
 
 
-Inserting  \ref{first der.} and \ref{second der.} into the first two terms of the expansion \ref{tay.exp}, and taking $\vec{x}_0 = \vec{0}$, the expansion becomes: 
+Inserting \ref{first der.} and \ref{second der.} into the first two terms of the expansion \ref{tay.exp}, and taking $\vec{x}_0 = \vec{0}$, the expansion becomes: 
 
 \begin{equation}
 \left( \frac{1}{|| \vec{x} - \vec{x}'||} \right) = \left( \frac{1}{|| \vec{x}||} \right) + \frac{x_a x'^b \delta^a_b}{||\vec{x}||^3} + \frac{1}{2!} \left(\frac{-\delta_{ab}}{||\vec{x}||^3} + \frac{3 x_a x_b}{||\vec{x}||^5}  \right) x'^c x'^d \delta^a_c \delta^b_d +  ... \;\; ,
@@ -210,15 +210,14 @@ Black Hole    &Arbitrary  &2GM/$c^2$ & $\approx M/R^{3}$ & $\approx 1$ \\
 \hline
 \end{tabular}
 \captionsetup{width=.8\textwidth}
-\caption{Compact objects compared to the Sun}
-\caption*{The information in this table was taken from \cite{Shapiro:1983du}. It lists some known compact objects and rough upper bounds for their masses, radii, and mean densities and compactness parameter $GM/Rc^2$.}
+\caption[Compact objects compared to the Sun]{Compact objects compared to the Sun. The information in this table was taken from \cite{Shapiro:1983du}. It lists known compact objects and rough upper bounds for their masses, radii, mean densities, and compactness parameter $GM/Rc^2$.}
 \label{compactness}
 \end{center}
 \end{table}
 
-The following is a derivation of the mass-radius relation for a spherically symmetric mass distribution in hydrostatic equilibrium. The equation of state for an ideal degenerate fermi gas will be taken into account to show the process of obtaining several properties of ideal white dwarfs explicitly, as Chandrasekhar did in his work \cite{Chandrasekhar:1931ih}. This subsection is also intended to give an idea of a case where the equations of hydrostatic equilibrium can be integrated analytically, as opposed to most cases in general relativity(see fig. \ref{equations of state and tidal deformability})
+The following is a derivation of the mass-radius relation for a spherically symmetric mass distribution in hydrostatic equilibrium. The equation of state for an ideal degenerate fermi gas will be taken into account to show the process of obtaining several properties of ideal white dwarfs explicitly, as Chandrasekhar did in his work \cite{Chandrasekhar:1931ih}. This subsection is also intended to give an idea of a case where the equations of hydrostatic equilibrium can be integrated analytically, as opposed to most cases in general relativity(see figure \ref{equations of state and tidal deformability})
 
-Let us start by considering a spherically symmetric mass distribution of radius r and take the effects of gravity on an infinitesimal mass element $dm$ occupying a volume $dV$. In spherical coordinates, the mass as a function of the radial coordinate and its first derivative is given by
+Let us start by considering a spherically symmetric mass distribution of radius r and take the effects of gravity on an infinitesimal mass element $dm$ occupying a volume $dV$. In spherical coordinates, the mass as a function of the radial coordinate and its first derivative are given by
 
 
 \begin{equation}\label{mass}
@@ -250,7 +249,7 @@ The hydrostatic equilibrium condition leads us to an expression of pressure grad
 -\frac{dP}{dr} = \frac{G M(r) \rho(r)}{r^2}. 
 \end{equation}
 
-However, equations \ref{massprime} and \ref{press.grad}, form a system of differential equations that has to be completed by a function that relates pressure and density to be integrated called \textit{equation of state}(EOS)
+However, equations \ref{massprime} and \ref{press.grad}, form a system of differential equations that has to be completed by a function that relates pressure and density called \textit{equation of state} (EOS) to be integrated.
 
 \begin{equation}\label{eos}
 P = P(\rho)
@@ -332,7 +331,7 @@ Defining the following functions, we obtain a more compact ODE called the Lane-E
 \end{equation}
 
 
-Where we used the identity  $\frac{d}{dr} r^2 \frac{d}{dr} = \frac{d}{d\xi} \xi^2 \frac{d}{d\xi} $. In general, equation\ref{LE} is solved using numerical methods, but analytical solutions can be found for some values of $n$. Numerical integration is carried out by decomposing it into a system of 2 coupled ODEs, with initial conditions $\theta(0)=0$ and $\theta'(0)=1$(see. \cite{Shapiro:1983du})
+Where we used the identity  $\frac{d}{dr} r^2 \frac{d}{dr} = \frac{d}{d\xi} \xi^2 \frac{d}{d\xi} $. In general, equation \ref{LE} is solved using numerical methods, but analytical solutions can be found for some values of $n$. Numerical integration is carried out by decomposing it into a system of 2 coupled ODEs, with initial conditions $\theta(0)=0$ and $\theta'(0)=1$(see \cite{Shapiro:1983du}).
 
 \begin{equation}
 \frac{d \theta}{d\xi} = -\frac{\phi}{\xi^2}, \;\; \theta(0)=1
@@ -369,7 +368,7 @@ M(R) = 4\pi \left( \frac{k \Gamma}{4\pi G} \right)^{\frac{1}{2-\Gamma}}\cdot \xi
 %M(R) = 4\pi \left( \frac{k (n+1)}{4\pi G} \right)^{\frac{n}{n-1}}\cdot \xi_1^{\frac{n+1}{n-1}} \cdot \Biggr| \frac{d\theta}{dr} (\xi_1) \Biggr| \cdot R^{\frac{n-3}{n-1}} \;\; .
 %\end{equation}
 
-The following figure shows the mass-radius relation for a static spherically symmetric polytropic star with a polytropic index $\Gamma=5/3$. The central pressure is chosen to be similar to the value reported for Sirius B \cite{Holberg_1998}. Notice that the mass is not bounded for small radii as opposed to the GR case (see fig.\ref{equations of state and tidal deformability} left panel)
+The following figure shows the mass-radius relation for a static spherically symmetric polytropic star with a polytropic index $\Gamma=5/3$. The central pressure is chosen to be similar to the value reported for Sirius B \cite{Holberg_1998}. Notice that the mass is not bounded for small radii as opposed to the GR case (see figure \ref{equations of state and tidal deformability} left panel)
 
 
 
@@ -383,4 +382,5 @@ The following figure shows the mass-radius relation for a static spherically sym
 \end{figure}
 
 \FloatBarrier
+
 
