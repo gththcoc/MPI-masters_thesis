@@ -78,7 +78,7 @@ q_{_{_{A, f, \phi_0, t_{0}, d}}}(t) =A \cdot sin(2\pi f t + \phi_0) \cdot \Pi_{t
    \end{cases}
 \end{equation}
 
-Where $t_0$ is wave starting time, $t_0+d$ and $f$ its duration and frequency, and $A$ and $\phi$ its amplitude and phase. As seen in figure \ref{fig:7}, matched filtering algorithm allows us to find the optimal values for amplitude, phase, and timeshift $A_{opt}$, $\phi_{opt}$ and $t_{0_{opt}}$, such that the template model \ref{eq:19}, can be written as
+Where $t_0$ is wave starting time, $d$ and $f$ its duration and frequency, and $A$ and $\phi$ its amplitude and phase. As seen in figure \ref{fig:7}, matched filtering algorithm allows us to find the optimal values for amplitude, phase, and timeshift $A_{opt}$, $\phi_{opt}$ and $t_{0_{opt}}$, such that the template model \ref{eq:19}, can be written as
 
 \begin{equation}\label{eq:20}
 q_{_{_{f,d}}}(t) =
@@ -154,6 +154,7 @@ Below, a few other example waveforms will be overlapped against the template mod
 \end{minipage}
 \captionsetup{width=0.8\textwidth}
 \caption[High mass ratio BNS system's postmerger waveform and its best monochromatic match]{High mass ratio BNS postmerger waveform and its best monochromatic match. This plot shows the recovered SNR \ref{eq:21} for the waveform BAM:0021:R01 of the CoRe BNS catalog \cite{Dietrich:2018phi} and the template model \ref{eq:19}. The best matching parameters are $f=1145.57$ Hz and $d=1.14$ ms.}
+\label{dmeoiw}
 \end{center}
 \end{figure}
 
@@ -162,7 +163,7 @@ Below, a few other example waveforms will be overlapped against the template mod
 
 \newpage
 
-\textit{Spinning BNS systems} i.e. $\chi_{eff}>0.2$(see equation \ref{chieff}) have a more complex frequency evolution. The colormap shows two regions of SNR excess: a wide one ranging from 1-2.5 kHz and duration below 5ms, and the other between 3-3.5 kHz with a peak duration around half waveform's duration $d_{postm}$. Notice that both regions have similar amounts of SNR recovery, so even though this example waveform prefers a long high frequency monochromatic segment, in some other cases, it may be a short, low frequency one.
+\textit{Spinning BNS systems} i.e. $\chi_{eff}>0.2$(see equation \ref{chieff}) have a more complex frequency evolution. The colormap shows two regions of SNR excess: a wide one ranging from 1-2.5 kHz and duration below 5ms, and the other between 3-3.5 kHz with a peak duration around half waveform's duration $d_{postm}$ (see \ref{dp}). Notice that both regions have similar amounts of SNR recovery, so even though this example waveform prefers a long high frequency monochromatic segment, in some other cases, it may be a short, low frequency one.
 
 \begin{figure}[!htbp]
 \begin{center}
@@ -209,7 +210,7 @@ Below, a few other example waveforms will be overlapped against the template mod
  
 
 \newpage
-\textit{Highly eccentric BNS systems} i.e., $e>0.4$, show a wide structure on the low-frequency side that dominates the colormap, resulting in short best matches, similar to high mass ratio waveforms
+\textit{Highly eccentric BNS systems} i.e., $e>0.4$, show a wide structure on the low-frequency side that dominates the colormap, resulting in short best matches, similar to the high mass ratio waveforms case shown in figure \ref{dmeoiw}. 
 
 
 \begin{figure}[!htbp]
@@ -226,13 +227,14 @@ Below, a few other example waveforms will be overlapped against the template mod
 \end{minipage}
 \captionsetup{width=0.8\textwidth}
 \caption[Eccentric BNS system's postmerger waveform and its best monochromatic match]{Eccentric BNS system's postmerger waveform and its best monochromatic match. This plot shows the recovered SNR \ref{eq:21} for the waveform BAM:0115:R01 of the CoRe BNS catalog \cite{Dietrich:2018phi} and the template model \ref{eq:19}. The best matching parameters are $f=1715.19$ Hz and $d=1.32$ ms.}
+\label{ecc}
 \end{center}
 \end{figure}
 
 \FloatBarrier
 
 
-\textit{Simulations of equal mass BNS systems} that consider viscous hydrodynamics generate waveforms with a stronger amplitude modulation than the example shown in figure \ref{eqmass}. However, such effects do not change significantly the colormaps, which also have a dominant peak in the region between 2-3 kHz.
+\textit{Simulations of equal mass BNS systems} that consider viscous hydrodynamics generate waveforms with a stronger amplitude modulation than the example shown in figure \ref{eqmass}. However, such effects in this case do not change significantly the colormap overall structure, which also have a dominant peak in the region between 2-3 kHz.
 
 
 \begin{figure}[!htbp]
@@ -256,7 +258,7 @@ Below, a few other example waveforms will be overlapped against the template mod
 
 
 
-Since eccentric, high mass ratio, or spinning BNS systems may generate waveforms that are challenging for the monochromatic model \ref{eq:19}. We can avoid searching in the low frequency region with a different question that slightly modifies the target of the search:
+Since eccentric, high mass ratio, or spinning BNS systems may generate waveforms that are challenging for the monochromatic model \ref{eq:19}. We can avoid searching in the low frequency region by imposing a different question  that modifies the search's target:
 
 Original question$\rightarrow$" Which parameters f and d would produce the monochromatic wave that recovers most of the signal-to-noise ratio?"
 
@@ -314,11 +316,10 @@ Modifying the question in such a way would increase the number of rejected point
 
 \end{itemize}
 
-
 Even though imposing such constraints on parameter space might help to recover the template frequency and duration, using such a method in real GW searches seems unfeasible since the GW signal's starting time and duration are unknown.
 
 \newpage
-\section{How well can the monochromatic model recover signals in the catalog?}
+\section{How well can the monochromatic model recover signals in the catalog?}\label{eori}
 
 The fact that one can find postmerger waveforms in the dataset \ref{NR} where a finite monochromatic model produces the results shown in figure \ref{eqmass} leads us to ask how the model \ref{eq:19} would perform across the whole waveform dataset. 
  
@@ -341,7 +342,7 @@ Let $f_{best}$ and $d_{best}$ be the parameters of the best matching template \r
 \gamma_{wei}=f_{best}/f_{wei}.
 \end{equation}
 
-Let us start by imposing the following color coding for different regions of the $\rho_{opt}$-$\alpha$ plane, and a threshold optimal SNR \ref{sopt} of 8 at 100 MPc (see \cite[section 3]{https://doi.org/10.48550/arxiv.2109.09882}).
+Let us start by imposing the following color coding for different regions of the $\rho_{opt}$-$\alpha$ plane, and a threshold optimal SNR \ref{sopt} of 8 for third generation detector sensitivity at 100 MPc (see \cite{Maggiore_2020,https://doi.org/10.48550/arxiv.2109.09882}).
 
 
 \begin{figure}[hbt!]
@@ -369,7 +370,7 @@ Lower right corner: non-detectable waveforms at 100MPc that require simple model
 \end{itemize}
 
 
-As we see in the following figure, overlapping every waveform in the dataset \ref{NR} will only produce SNR recoveries above 60\%. However, not all waveforms surpass the $\rho_{opt}=8$ threshold. Notice that all waveforms below $\alpha=0.65$ are marked with red crosses and waveforms with $\alpha=0.80$ with green ones.
+As we see in the following figure, overlapping every waveform in the dataset \ref{NR} against the template model \ref{eq:19} will only produce SNR recoveries above 60\%. However, not all waveforms surpass the $\rho_{opt}=8$ threshold. Notice that all waveforms below $\alpha=0.65$ are marked with red crosses and waveforms with $\alpha=0.80$ with green ones.
 
 \begin{figure}[hbt!]
 \begin{center}
@@ -412,7 +413,7 @@ The waveform distributions for $f_{wei}$, and $d_wei$, are shown below such that
 
 Notice how transitioning from the whole dataset(left) to only above threshold waveforms(right) does two different things: It significantly reduces the tall green bar in figure \ref{adhist}. In addition, in figure \ref{afhist}, we see how most green bars disappear around the 3000Hz value in the weighted frequency histogram. Combining both plots, we can tell that the lower-right region in figure \ref{regions} contains many short waveforms with high average frequency.
 
-Moreover, the red samples tell us how the monochromatic template model struggles to get more than 65\% of the optimal SNR for waveforms longer than 30 milliseconds. 
+Moreover, the red samples tell us how the monochromatic template model \ref{eq:19} struggles to get more than 65\% of the optimal SNR for waveforms longer than 30 milliseconds. 
 
 
 \newpage 
@@ -547,7 +548,7 @@ A wide variety of known functions could reproduce the first postmerger amplitude
 
 \vspace{1cm}
 
-\begin{itemize}
+\begin{itemize}[leftmargin=*]
 \item zero-crossing:
 \begin{equation}\label{line}
 Y0_{w, t_{min}}(t) =
@@ -588,7 +589,7 @@ U0_{_{f,d, w, tmin}} = Y0_{_{w,t_{min}}}(t) \cdot
 \end{equation}
 
 
-Even though template models of the form \ref{4dim-model} seem would translate the problem into a 4-dimensional search, one could keep the dimensionality low by using universal relations for the location of the postmerger's first minimum with respect to the waveform's maximum amplitude (see Tsang et al. \cite{Tsang:2019esi}). 
+Even though template models of the form \ref{4dim-model} would translate into a 4-dimensional matched filtering search, we will keep the dimensionality one dimension lower by using universal relations for the location of the postmerger's first minimum with respect to the waveform's maximum amplitude (see Tsang et al. \cite{Tsang:2019esi}). 
 
 Finally, the template model can be posed as a 2D+1 when fixing the $t_{min}$ but leaving the width as a free parameter.
 
@@ -696,14 +697,14 @@ The quadratic hyperbolic tangent model \ref{tanh2} reproduces, in this case, muc
 
 
 
-\section{Impacts of amplitude and phase evolution on different postmerger  waveforms}
+\section{Impacts of amplitude and phase evolution on different postmerger  waveforms}\label{cdm}
 
 In general, expecting a simple monochromatic model to match perfectly every possible postmerger BNS phase sounds optimistic. As we saw in the previous section, adding simple features to improve parameter estimation accuracy may lead to SNR losses or only marginal improvements when running the matched filtering algorithm at the cost of increasing the dimensionality of the model's parameter space.
 
 The following section proposes a method that implicitly evaluates two possible paths for creating future simple  BNS postmerger waveform approximants. To carry out such a task, we will take the complex strain \ref{fvr} of all waveforms shown in section \ref{2dsearch} and its amplitude envelopes $|H(t)|$, phases $\phi(t)=\angle H(t)$, and durations \ref{dp} to build the following template models:
 
 \begin{itemize}[leftmargin=*]
-\item A wave with constant amplitude and perfect phase evolution.
+\item A wave with constant amplitude and ideal phase evolution $\phi(t)$.
 
 \begin{equation}\label{pha-evol}
 g(t) = \cdot \begin{cases} 
@@ -714,7 +715,7 @@ g(t) = \cdot \begin{cases}
 \end{equation}
 
 
-\item A monochromatic wave with perfect amplitude evolution.
+\item A monochromatic wave with ideal amplitude evolution $|H(t)|$.
 
 \begin{equation}\label{a-evol}
 f(t) = |H(t)| \cdot \begin{cases} 
@@ -746,7 +747,7 @@ In the following figure, we show how for an example waveform, we generate three 
 \subsubsection*{Postmerger waveforms with rectangular windowing}
 
 
-In the following figure, shows the an equal mass waveform (top), a high mass ratio waveform (mid), and a spinning waveform(bottom) on the left and the SNR results are computed on the right as described for the case shown in figure \ref{analysis}.
+The following figure shows an equal mass waveform (top), a high mass ratio waveform (mid), and a spinning waveform(bottom) on the left, and the SNR results are computed on the right as described for the case shown in figure \ref{analysis}. Notice that we define the following postmerger waveforms using a rectangular window function as shown in figure \ref{postm_cut}.
 
 
 \begin{figure}[hbt!]
@@ -759,7 +760,7 @@ In the following figure, shows the an equal mass waveform (top), a high mass rat
 \end{figure}
 \FloatBarrier
 
-In addition, the following SNR curves are also computed for a wavefor generated by a heavy BNS system (top), a highly eccentric waveform (mid) and a waveform generated by a BNS where viscous hydrodynamics were considered (bottom).
+In addition, the following SNR curves are also computed for a waveform generated by a heavy BNS system (top), a highly eccentric waveform (mid), and a waveform generated by a BNS where viscous hydrodynamics were considered (bottom).
 
 \begin{figure}[hbt!]
 \begin{center}
@@ -772,9 +773,9 @@ In addition, the following SNR curves are also computed for a wavefor generated 
 \FloatBarrier
 
 
-The following table is shown to compare quantitatively the maximum recovered SNR for all models after being overlapped against all waveforms shown in section \ref{2dsearch}. The first column shows the simulation ID, the second row shows the optimal SNR \ref{sopt} computed for that waveform at 100 MPc, the third column shows the maximum recovered SNR using the constant amplitude model \ref{eq:20} denoted by $\alpha(\phi_{const.})$, the fourth column the recovery using the model \ref{pha-evol} denoted by $\alpha(\phi(t))$, and the fifth column the recovery when using the model \ref{a-evol} denoted by $\alpha(|H(t)|)$.
+The following table is shown to compare quantitatively the maximum recovered SNR for all models after being overlapped against all waveforms shown in figures \ref{ncejn} and \ref{ncfrnv}. The first column lists all waveforms by simulation ID, the second row shows the optimal SNR \ref{sopt} computed for that waveform at 100 MPc, the third column shows the maximum recovered SNR using the constant amplitude model \ref{eq:20} denoted by $\alpha(\phi_{const.})$, the fourth column the recovery using the model \ref{pha-evol} denoted by $\alpha(\phi(t))$, and the fifth column the recovery when using the model \ref{a-evol} denoted by $\alpha(|H(t)|)$.
 
-Notice how the high mass ratio waveforms and waveforms generated by heavy BNS systems prefer the model with perfect amplitude evolution \ref{a-evol}, while other waveforms get closer to the optimal SNR when overlapped against model \ref{pha-evol}.
+Notice how the high mass ratio waveforms and waveforms generated by heavy BNS systems prefer the model with ideal amplitude evolution \ref{a-evol}, while other waveforms get closer to the optimal SNR when overlapped against model \ref{pha-evol}.
 
 
 \begin{table}[!htbp]
@@ -793,20 +794,18 @@ $\mathrm{{visc.\hspace{1mm} HD}_{_{_{(THC:0019)}}}}$&9.122&0.461&0.819&0.638\\
 \hline\\ 
 \end{tabular}
 \captionsetup{width=0.8\textwidth}
-\caption[Improved simple modelling summary for a rectangular window function]{Improved simple modelling summary for a rectangular window function. This table summarizes the SNR recovery with the Einstein telescope at 100MPc for the models \ref{pha-evol}, \ref{a-evol}, and \ref{eq:19} on all waveform examples shown in section \ref{2dsearch} when using a rectangular window function to define the postmerger phase the BNS waveform.}
+\caption[Improved simple modeling summary for a rectangular window function]{Improved simple modeling summary for a rectangular window function. This table summarizes the SNR recovery with the Einstein telescope at 100MPc for the models \ref{pha-evol}, \ref{a-evol}, and \ref{eq:19} on all waveform examples shown in section \ref{2dsearch} when using a rectangular window function to define the postmerger phase the BNS waveform.}
 \label{table untapered}
 \end{center}
 \end{table}
 \FloatBarrier
-
-%Notice that  how the model with perfect amplitude evolution (black) gets closer to the optimal curve (blue) the high mass ratio waveforms(mid row). For the other two waveform all models show marginal differences where the model with perfect phase evolution is preferred (red).
 
 
 
 
 \subsubsection*{Tapered postmerger: Impacts of spectral leakage}
 
-In what follows we discuss whether the presence of the hard cutoff introduced by the rectangular window causes spectral leakage when computing FFTs that affect the relative height of the SNR peaks shown in figures \ref{ncejn}, \ref{ncfrnv} with respect to the optimal SNR curve in blue. The following plots are computed following as in the example shown in figure \ref{analysis}. However we will allow, on all waveforms shown in figures \ref{ncejn} and \ref{ncfrnv}, a few cycles before merger time and taper the signal using a Tukey window of parameter n=0.1 (see \cite{bloomfield1976fourier}).
+In what follows, we discuss whether the presence of the hard cutoff introduced by the rectangular window causes spectral leakage when computing FFTs that affect the relative height of the SNR peaks shown in figures \ref{ncejn}, \ref{ncfrnv} with respect to the optimal SNR curve in blue. The following plots are computed as in the example shown in figure \ref{analysis}. However, we will allow, on all waveforms shown in figures \ref{ncejn} and \ref{ncfrnv}, a few cycles before merger time and taper the signal using a Tukey window of parameter n=0.1 (see \cite{bloomfield1976fourier}).
 
 
 \begin{figure}[hbt!]
@@ -830,7 +829,7 @@ In what follows we discuss whether the presence of the hard cutoff introduced by
 The following table compares quantitatively the maximum recovered SNR for all models after being overlapped against all waveforms shown in section \ref{2dsearch}. The first column lists all waveforms by simulation ID, and the second row shows the time allowed before the merger time for applying the Tukey window. The third column shows the Tukey parameter n used to taper the waveform, and the last four columns have the same meaning as in table \ref{table untapered}.
 
 
-Notice how heavy BNS systems generate high mass ratio waveforms, and waveforms get closer to the optimal SNR when using the model with perfect amplitude evolution \ref{a-evol}. On the other hand, the other waveforms benefit more from the perfect phase evolution model \ref{a-evol}.
+Notice how heavy BNS systems generate high mass ratio waveforms, and waveforms get closer to the optimal SNR when using the model with ideal amplitude evolution \ref{a-evol}. On the other hand, the other waveforms benefit more from the ideal phase evolution model \ref{pha-evol}.
 
 \begin{table}[!htbp]
 \begin{center}
@@ -856,23 +855,23 @@ $\mathrm{{visc.\hspace{1mm} HD}_{_{_{(THC:0019)}}}}$&1.0&0.1&9.570&0.436&0.848&0
 
 
 
+
 \newpage
 \addcontentsline{toc}{part}{Conclusions}
 
 \chapter*{Conclusions}
 
-Modeling the postmerger BNS GW signal is a very interesting open problem. Future detectors being much more sensitive in the kHz band will require the community to have calibrated phenomenological models for the whole BNS signal for the next decade. Future improvements on current phenomenological models and advances in universal and quasi-universal relations help reduce the number of parameters a model would require since they could be inferred from the inspiral or other observations.
 
-This thesis explored the possibility of simple modeling on every waveform in available catalogs, and it complemented those results by addressing whether amplitude or phase evolution modeling could be prioritized separately depending on the source. 
+This thesis explored the largest BNS numerical relativity waveform dataset to see whether simple postmerger models could be used to rapidly detect BNS postmerger signals and recover their main frequency and duration using low-latency GW search pipelines when third generation detectors become operational.
  
-The initial analysis showed how the finite monochromatic model performed well on equal mass waveforms and precessing waveforms with only one amplitude minimum. It recovered from 60 to 80\% of the optimal SNR because their waveforms do not have substantial variations in the phase or phase velocity nor significant amplitude variations that could account for phaseshifts of the order of $\pi$ radians. Some sources are above the imposed threshold for detection, and implementing a model with constant amplitude but better phase evolution would get more than 80\% of the SNR while recovering all the signal cycles.
+The analysis made in section \ref{eori} showed how, out of all waveforms in the dataset,  the finite monochromatic model could perform best at recovering duration and frequency recovery of nonspinning equal mass postmerger waveforms and spinning equal mass postmerger waveforms with only one amplitude minimum (see figures \ref{eqmass} and \ref{eqmass}). In addition, we observed that some of those waveforms are above the optimal SNR threshold for detection at 100 MPc, and the monochromatic model \ref{eq:19} recovered between 60 to 80\% of the optimal. This tells us that for a third generation detector, a low latency search pipeline could use simple postmerger models with better phase evolution, as we saw in section \ref{cdm}, to improve the SNR recovery and the chances of observing the postmerger's dominant frequency and duration. 
 
-Short waveforms with weighted frequencies around 3kHz belong to systems with $\delta=\frac{M}{M_{TOV}} > 1.6$. The simple monochromatic template model recovered from 80-98\% of the optimal SNR, being a reasonably good model for them. However, most of them are not loud enough to be detectable if a source at a distance of 100MPc or more generates them. Nevertheless, closer sources like GW170817 could have detectable postmerger phases by third-generation detectors.
+Moreover, we found a lot of short waveforms in the catalog with weighted frequencies around 3 kHz belong to heavy BNS systems. Even though the optimal SNR of these waveforms at 100 MPc was below the imposed threshold,  the simple monochromatic template model recovered from 80-98\% of the optimal SNR, making them potentially observable using a simple model by third-generation detectors if they belong to a loud close event like GW170817.
 
-High mass ratio and highly eccentric waveforms are the best candidates for detection at 100MPc or more. They feature a few loud oscillations after maximum amplitude that contain 60 to 95\% followed by a lower amplitude tail. The transition from the high amplitude initial part to the low amplitude tail looks pretty challenging to recover with a Monochromatic template model because the matched filtering algorithm would not gain much SNR by considering a longer wave. A better amplitude evolution would change this, significantly improving the SNR gains while recovering the low amplitude tail much better.
+Finally, the dataset's high mass ratio and highly eccentric postmerger waveforms had the highest optimal SNR, making them the best candidates for detection at 100 MPc with third generation detector sensitivity. However, due to their complex morphology, the finite monochromatic model with constant amplitude could not accurately recover the postmerger duration nor the main frequency of their long postmerger tail, as seen in figures \ref{dmeoiw} and \ref{ecc}. 
 
 
-%Amplitude modeling is more important for short signals generated by systems with a total gravitational mass greater than 1.6  times the maximum TOV mass and waveforms generated by systems with a high mass ratio greater than 1.6. On the other hand, signals generated by equal mass non-spinning binaries and spinning binaries with only one deep strain minimum in the time domain are already well recovered by a monochromatic signal. However, they would significantly improve if one provides a model with a much better phase evolution.
+
 
 
 
